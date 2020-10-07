@@ -1,0 +1,49 @@
+<script src="https://kit.fontawesome.com/da6e295665.js" crossorigin="anonymous"></script>
+	<div class="row">
+		<div class="col-xs-10">
+      <h2>マイページ</h2>
+    </div>
+  </div>
+  
+  <div class="row">
+		<div class="col-xs-8 col-xs-offset-1">
+		<h3><strong class="information-link"><i class="far fa-user"></i>登録情報</strong>
+			<%= link_to " 編集する", edit_user_path, class: "glyphicon glyphicon-wrench btn btn-success col-xs-offset-1" %>
+			<%= link_to " パスワードを変更する", user_path, class: "glyphicon glyphicon-cog btn btn-warning pull-right" %>
+		</h3>
+
+			<table class="table table-bordered table-condensed" >
+				<tbody>
+					<tr>
+						<td class="info col-xs-3"><strong>氏名</strong></td>
+						<td class="text-left"><%= @user.name %></td>
+					</tr>
+					<tr>
+						<td class="info"><strong>郵便番号</strong></td>
+						<td class="text-left"><%= @user.postcode %></td>
+					</tr>
+					<tr>
+						<td class="info"><strong>住所</strong></td>
+						<td class="text-left"><%= @user.address %></td>
+					</tr>
+					<tr>
+						<td class="info"><strong>電話番号</strong></td>
+						<td class="text-left"><%= @user.phone_number %></td>
+					</tr>
+					<tr>
+						<td class="info"><strong>メールアドレス</strong></td>
+						<td class="text-left"><%= @user.email %></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="mypage-bottoms">
+				<h4><strong class="shipping-link">お気に入り</strong>
+					<%= link_to " 一覧を見る", favorites_path, data: {"turbolinks" => false}, class: "glyphicon glyphicon-folder-open btn btn-info col-xs-offset-2" %>
+				</h4>
+				<h4><strong class="order-link">コンタクト済み</strong>
+					<%= link_to " 一覧を見る", rooms_path, class: "glyphicon glyphicon-folder-open btn btn-info col-xs-offset-2" %>
+				</h4>
+			</div>
+	</div>
+</div>
