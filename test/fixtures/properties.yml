@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  genre_id: 1
+  property_name: MyString
+  prefecture: MyString
+  property_address: MyString
+  intruduction: MyText
+  property_address: MyString
+  direction: MyString
+  area: 1
+  floor: MyString
+  price: 1
+  structure: MyString
+  parking: MyString
+  etc: MyText
+
+two:
+  user_id: 1
+  genre_id: 1
+  property_name: MyString
+  prefecture: MyString
+  property_address: MyString
+  intruduction: MyText
+  property_address: MyString
+  direction: MyString
+  area: 1
+  floor: MyString
+  price: 1
+  structure: MyString
+  parking: MyString
+  etc: MyText
