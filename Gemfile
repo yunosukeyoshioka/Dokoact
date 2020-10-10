@@ -72,3 +72,5 @@ gem "refile-mini_magick"
 gem 'ransack'
 #paranoia論理削除
 gem 'paranoia'
+
+gem 'carrierwave', '~> 1.3', '>= 1.3.1'

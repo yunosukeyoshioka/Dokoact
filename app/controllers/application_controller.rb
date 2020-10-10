@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  #CSRF保護の無効化
+  #protect_from_forgery with: :null_session
 	before_action :configure_permitted_parameters, if: :devise_controller?
   # before_action :withdraw_customer, only: [:create]
   #Bootstrapのflashメッセージ機能追記

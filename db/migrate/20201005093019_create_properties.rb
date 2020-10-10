@@ -4,17 +4,15 @@ class CreateProperties < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.integer :genre_id
       t.string :property_name
-      t.integer :prefecture
+      t.integer :prefecture_id
       t.string :property_address
       t.text :intruduction
-      t.string :property_address
       t.string :direction
-      t.integer :area
+      t.integer :area_id
       t.string :floor
       t.integer :price, default: 0
       t.string :structure
-      t.string :parking
-      t.text :etc
+      t.string :parking  
 
       t.timestamps
     end

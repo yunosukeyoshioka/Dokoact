@@ -1,2 +1,65 @@
-<h1>Properties#new</h1>
-<p>Find me in app/views/properties/new.html.erb</p>
+<h2>施設・物件の新規投稿</h2>
+<%= form_for(@property, url: properties_path) do |f| %>
+  <% if @property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @property.errors.count %>件のエラーが発生しました。</h2>
+      <ul>
+      <% @property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %> 
+  <div class="row">
+    <div class="col-sm-12">
+      <table>
+        <tr>
+          <%#= f.attachment_field :img %>
+          <%#= image_tag @property.img.url%>
+          <td><%= f.file_field :img, class: "image" %></td>
+         <!--  <td><%= f.check_box :remove_img %>画像を削除する</td> -->
+        </tr>
+        <tr>
+          <td><label class="control-label sr-only">名称</label></td>
+          <td><%= f.text_field :property_name, class:"form-control", placeholder:"施設名" %></td>
+        </tr>
+        <tr>
+          <td><label class="control-label">施設種別</label></td>
+          <td><%= f.collection_select(:genre_id, Genre.all, :id, :genre) %></td>
+        </tr>
+        <tr>
+          <td><label class="control-label">住所</label></td>     
+        <%#= form_for(@prefecture, url: prefectures_path) do |p| %>
+
+          <td>
+        <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %>
+              <%#= form_for(prefectures_path(@prefecture)) do |p| %>
+                <%#= p.collection_select :name, Prefecture.all, :name, :name%>
+              <%# end %>
+          </td>            
+        </tr>
+        <tr>
+          <td><label class="control-label">広さ</label></td>
+          <%#= f.select :area, options_for_select([["~20㎡"],["21~40㎡"],["41~60㎡"],["60㎡~"],["問わない"]]) %>
+         
+          <td>
+            <%= f.collection_select :area_id, Area.all, :id, :width %>
+              <%#= form_for(areas_path(@area)) do |a| %>
+                <%#= a.collection_select :width, Area.all, :width, :width %>
+              <%# end %>
+          </td>    
+        </tr>
+        <tr>
+          <td><label class="control-label">価格(1日あたり)</label></td>
+          <td><%= f.text_field :price, class:"form-control", placeholder:"1日あたりの価格" %></td>      
+        </tr>
+        <tr>
+          <td><label class="control-label">その他条件</label></td>
+          <td><%= f.text_area :etc, class:"form-control", placeholder:"その他" %></td>      
+        </tr>
+      </table>
+    </div>
+  </div>
+ 
+  <%= f.submit "送信", class:"btn btn-lg btn-block btn-base-1" %>
+<% end %>

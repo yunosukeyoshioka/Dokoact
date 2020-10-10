@@ -5,9 +5,9 @@
     </h2>
     <% @prefectures.each do |prefecture| %>
       <div class="clearfix col-xs-4 item-box space">
-        <%= link_to properties_path(prefecture.id) do %> 
+        <%= link_to properties_path(prefecture_id:prefecture.id) do %> 
           <div class="row">
-            <h4><%= prefecture.prefecture %></h4>
+            <h4><%= prefecture.name %></h4>
           </div>
         <% end %>  
       </div> 

@@ -22,7 +22,8 @@ Rails.application.routes.draw do
 
   resources :favorites, only: [:index, :create, :destroy, :withdraw] 
 
-
+  resources :prefectures, only: [:create]
+  resources :areas, only: [:create]
 
 
   resources :genre, only: [:create], as: 'genres'
@@ -30,9 +31,5 @@ Rails.application.routes.draw do
  	get 'about' => 'home#about', as: 'abouts'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-
-
-
 
 end

@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_07_123101) do
+ActiveRecord::Schema.define(version: 2020_10_08_124140) do
+
+  create_table "areas", force: :cascade do |t|
+    t.string "width"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -33,14 +39,20 @@ ActiveRecord::Schema.define(version: 2020_10_07_123101) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "prefectures", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "properties", force: :cascade do |t|
     t.integer "user_id"
     t.integer "genre_id"
     t.string "property_name"
-    t.integer "prefecture"
+    t.integer "prefecture_id"
     t.string "property_address"
     t.text "intruduction"
-    t.integer "area"
+    t.integer "area_id"
     t.integer "price", default: 0
     t.text "etc"
     t.datetime "created_at", null: false

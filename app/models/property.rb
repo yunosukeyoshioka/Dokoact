@@ -1,17 +1,14 @@
 class Property < ApplicationRecord
+	#画像
+	mount_uploader :img, ImgUploader
+
 	belongs_to :user
 	belongs_to :genre
 
 	has_many :rooms, through: :messages
 	has_many :favorites
+	belongs_to :prefecture, optional: true
+	belongs_to :area, optional: true
+	
 
-	enum prefecture: 
-	{ "北海道": 0, "青森": 1, "岩手": 2, "秋田": 3, "宮城": 4,
-	 "山形": 5, "福島": 6, "山梨": 7, "長野": 8, "新潟": 9, "富山": 10, "石川": 11,
-	  "福井": 12, "東京": 13, "神奈川": 14, "千葉": 15, "埼玉": 16, "茨城": 17, "栃木": 18,
-	   "群馬": 19, "愛知": 20, "静岡": 21, "岐阜": 22, "三重": 23, "岡山": 24, "広島": 25, 
-	   "鳥取": 26, "島根": 27, "山口": 28, "大阪": 29, "兵庫": 30, "京都": 31, "滋賀": 32, 
-	   "奈良": 33, "和歌山": 34, "愛媛": 35, "香川": 36, "高知": 37, "徳島": 38, "福岡": 39, 
-	   "佐賀": 40, "長崎": 41, "熊本": 42, "大分": 43, "宮崎": 44, "鹿児島": 45, "沖縄": 46 
- }
 end
