@@ -37,13 +37,21 @@
 				</tbody>
 			</table>
 
-			<div class="mypage-bottoms">
-				<h4><strong class="shipping-link">お気に入り</strong>
-					<%= link_to " 一覧を見る", favorites_path, data: {"turbolinks" => false}, class: "glyphicon glyphicon-folder-open btn btn-info col-xs-offset-2" %>
-				</h4>
-				<h4><strong class="order-link">コンタクト済み</strong>
-					<%= link_to " 一覧を見る", rooms_path, class: "glyphicon glyphicon-folder-open btn btn-info col-xs-offset-2" %>
-				</h4>
+			<div class="row mypage-bottoms">
+				<div class= "col-xs-12">
+					<h4>
+						<strong class="shipping-link">お気に入り</strong>
+						<%= link_to " 一覧を見る", favorites_path, data: {"turbolinks" => false}, class: "glyphicon glyphicon-folder-open btn btn-info" %>
+					</h4>
+					<h4>
+						<strong class="order-link">コンタクト済み</strong>
+						<%= link_to " 一覧を見る", rooms_path, class: "glyphicon glyphicon-folder-open btn btn-info" %>
+					</h4>
+					<h4>
+						<%= link_to "物件を投稿する", new_property_path, class: "glyphicon glyphicon-folder-open btn btn-info" %>
+					</h4>
+				</div>
 			</div>
+
 	</div>
 </div>

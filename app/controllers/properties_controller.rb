@@ -5,15 +5,26 @@ class PropertiesController < ApplicationController
   end
 #物件一覧画面の表示
   def index
+    #seedに記述の都道府県情報を取得。.allと比べてidごとに一覧を表示できる
+    @properties = Property.where(prefecture_id:params[:prefecture_id])
   end
 #物件詳細画面の表示
   def show
+    @property = Property.find(params[:id])
   end
 #物件編集画面の表示
   def edit
   end  
 #物件の新規投稿
   def create
+    @property = Property.new(property_params)
+    @property.user_id = current_user.id
+    if @property.save
+      redirect_to user_path(current_user), notice: "物件を登録しました"
+    else
+      flash[:danger] = '物件を登録出来ませんでした。空欄の箇所はありませんか？'
+      render "properties/new"
+    end
   end
 #物件の削除
   def destroy
@@ -29,7 +40,7 @@ class PropertiesController < ApplicationController
 
   private
   def property_params
-    params.require(:property).permit(:user_id, :genre_id, :property_name, :prefecture, :property_address, :intruduction, :direction, :area, :floor, :price, :structure, :parking, :etc, :img)
+    params.require(:property).permit(:genre_id, :property_name, :prefecture_id, :area_id, :property_address, :intruduction, :price, :etc, :img)
   end
   
 end

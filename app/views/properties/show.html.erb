@@ -1,2 +1,27 @@
-<h1>Properties#show</h1>
-<p>Find me in app/views/properties/show.html.erb</p>
+<h2><%= @property.property_name %></h2>
+<div class="post-meta-top">
+  <div class="price">
+    ¥<%= @property.price %>/日
+  </div>
+  <div class="post-image">
+    <%= image_tag @property.img.to_s %>
+  </div>
+    </div>
+    <div class="post-content">
+      <ul class="meta-info-cells v4 float-wrapper">
+        <h2 class="post-title"><%= @property.property_address %></h2>
+        <li>
+          <%= @property.genre.genre %> 
+        </li>
+        <li>
+          <%= @property.area.width %> 
+        </li>
+        <li>
+          <%= @property.etc %> 
+        </li>
+        <li>
+          <!-- <i class="fa fa-heart"></i>
+          <a href="#">202 いいね</a> -->
+        </li>
+      </ul>
+    </div>

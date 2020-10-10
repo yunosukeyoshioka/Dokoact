@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
  #トップ画面。都道府県選択画面の表示
   def top
-  	@prefectures = Property.all
+  	@prefectures = Prefecture.all
   	pp @prefectures
   end
 

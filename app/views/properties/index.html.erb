@@ -1,2 +1,32 @@
-<h1>Properties#index</h1>
-<p>Find me in app/views/properties/index.html.erb</p>
+ <% @properties.each do |property| %>
+  <div class="masonry-block">
+    <div class="block block-image v1">
+      <div class="block-image">
+        <div class="view view-first">
+          <%= image_tag property.img.to_s %>
+        </div>
+      </div>
+      <div class="block-content">
+        <h3 class="block-title">
+          <%= link_to property_path(property.id) do %>
+          <%= property.property_name %>
+          <% end %>
+        </h3>
+
+        <p><%= property.property_address %></p>
+        <p><%= property.genre.genre %></p>
+        <ul>
+          <li>
+            ¥<%= property.price %>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <%= property.area.width %>
+          </li>
+        </ul>
+        <%= link_to "詳細はこちら", property_path(property.id) %>
+      </div>
+    </div>
+  </div>
+<% end %>
