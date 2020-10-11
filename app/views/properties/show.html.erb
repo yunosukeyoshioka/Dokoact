@@ -17,11 +17,13 @@
           <%= @property.area.width %> 
         </li>
         <li>
-          <%= @property.etc %> 
+          <%= @property.intruduction %> 
         </li>
-        <li>
+        <div>
+          <%= link_to "ブックマーク登録", favorites_path(id: @property.id), method: :post %>
+        </div>
           <!-- <i class="fa fa-heart"></i>
           <a href="#">202 いいね</a> -->
-        </li>
+        
       </ul>
     </div>

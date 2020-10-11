@@ -4,11 +4,15 @@ class Property < ApplicationRecord
 
 	belongs_to :user
 	belongs_to :genre
-
-	has_many :rooms, through: :messages
-	has_many :favorites
 	belongs_to :prefecture, optional: true
 	belongs_to :area, optional: true
+	
+	has_many :favorites
+	has_many :users, through: :clips
+	
+	has_many :rooms, through: :messages
+	
+	
 	
 
 end

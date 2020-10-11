@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     collection do 
       get :search
     end
+       member do
+      post "add", to: "properties#create"
+    end
   end
 
 	resources :rooms, only: [:index, :show, :create, :destroy] do

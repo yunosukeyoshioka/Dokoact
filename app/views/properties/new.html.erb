@@ -14,8 +14,6 @@
     <div class="col-sm-12">
       <table>
         <tr>
-          <%#= f.attachment_field :img %>
-          <%#= image_tag @property.img.url%>
           <td><%= f.file_field :img, class: "image" %></td>
          <!--  <td><%= f.check_box :remove_img %>画像を削除する</td> -->
         </tr>
@@ -28,26 +26,13 @@
           <td><%= f.collection_select(:genre_id, Genre.all, :id, :genre) %></td>
         </tr>
         <tr>
-          <td><label class="control-label">住所</label></td>     
-        <%#= form_for(@prefecture, url: prefectures_path) do |p| %>
-
-          <td>
-        <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %>
-              <%#= form_for(prefectures_path(@prefecture)) do |p| %>
-                <%#= p.collection_select :name, Prefecture.all, :name, :name%>
-              <%# end %>
-          </td>            
+          <td><label class="control-label">住所</label></td>
+          <!--住所をセレクターで表示。ネスト済みのため、prefecture_id, 県全件取得, id, カラム名(名前)で表示 -->  
+          <td><%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %></td>            
         </tr>
         <tr>
           <td><label class="control-label">広さ</label></td>
-          <%#= f.select :area, options_for_select([["~20㎡"],["21~40㎡"],["41~60㎡"],["60㎡~"],["問わない"]]) %>
-         
-          <td>
-            <%= f.collection_select :area_id, Area.all, :id, :width %>
-              <%#= form_for(areas_path(@area)) do |a| %>
-                <%#= a.collection_select :width, Area.all, :width, :width %>
-              <%# end %>
-          </td>    
+          <td><%= f.collection_select :area_id, Area.all, :id, :width %></td>    
         </tr>
         <tr>
           <td><label class="control-label">価格(1日あたり)</label></td>
@@ -55,7 +40,7 @@
         </tr>
         <tr>
           <td><label class="control-label">その他条件</label></td>
-          <td><%= f.text_area :etc, class:"form-control", placeholder:"その他" %></td>      
+          <td><%= f.text_area :intruduction, class:"form-control", placeholder:"その他" %></td>      
         </tr>
       </table>
     </div>
