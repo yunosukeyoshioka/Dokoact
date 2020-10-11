@@ -1,2 +1,11 @@
-<h1>Favorites#index</h1>
-<p>Find me in app/views/favorites/index.html.erb</p>
+<h2>ブックマーク一覧</h2>
+  <% @favorites.each do |favorite| %>
+    <div>
+    	<%= link_to property_path(favorite.id) do %>
+      <%= favorite.property.property_name %>  
+      <% end %>
+    </div>
+    <div>
+      <%= link_to "ブックマークから削除", favorite_path(favorite.id), method: :delete %>        
+    </div>     
+  <% end %>

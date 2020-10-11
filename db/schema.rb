@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 2020_10_08_124140) do
     t.text "intruduction"
     t.integer "area_id"
     t.integer "price", default: 0
-    t.text "etc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "img"

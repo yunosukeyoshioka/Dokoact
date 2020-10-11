@@ -20,7 +20,7 @@ class PropertiesController < ApplicationController
     @property = Property.new(property_params)
     @property.user_id = current_user.id
     if @property.save
-      redirect_to user_path(current_user), notice: "物件を登録しました"
+      redirect_to properties_path(property_params), notice: "物件を登録しました"
     else
       flash[:danger] = '物件を登録出来ませんでした。空欄の箇所はありませんか？'
       render "properties/new"
@@ -31,16 +31,22 @@ class PropertiesController < ApplicationController
   end	
 #物件の編集
   def update
-  end	
-#物件の検索画面表示
+  end
+
+  #物件の検索画面表示
+  #検索アクション
   def search
-    @q = Property.ransack(params[:id])
-    @properties = @q.result(district: true)
+    @q = Property.ransack(params[:q])
+    if params[:q].present?
+      #distinct 検索時に重複がないようにする
+      @properties = @q.result(distinct: true)
+      render :index
+    end
   end  
 
   private
   def property_params
-    params.require(:property).permit(:genre_id, :property_name, :prefecture_id, :area_id, :property_address, :intruduction, :price, :etc, :img)
+    params.require(:property).permit(:genre_id, :property_name, :prefecture_id, :area_id, :property_address, :intruduction, :price, :img)
   end
   
 end

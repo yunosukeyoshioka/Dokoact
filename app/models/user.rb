@@ -10,9 +10,8 @@ has_many :messages, foreign_key: :receiver_id
 
 has_many :rooms, foreign_key: :owner_id
 
-has_many :properties
-
-has_many :favorites
+has_many :favorites, dependent: :destroy
+has_many :properties, through: :clips
 
 validates :name, presence: true, length: {maximum:30,minimum:1}
 validates :email, presence: true, uniqueness: true, length: {minimum:4}

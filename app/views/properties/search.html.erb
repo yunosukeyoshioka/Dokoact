@@ -2,27 +2,29 @@
 <h2>条件検索</h2>
 
 <table>
-	<%= search_form_for @q do |f| %>
+	<%= search_form_for @q, url: search_properties_path do |f| %>
 		<tr>
 		  <td><%= f.label :property_name, "名称" %></td>
-		  <td><%= f.search_field :property_name %></td>
+		  <td><%= f.search_field :property_name_cont %></td>
 		</tr>
 		<tr> 
 		  <td><%= f.label :genre_id, "種別" %></td>
-		  <td><%= f.select :genre_id, options_for_select([["劇場"],["練習場"]]) %></td>
+		  
+		  <td><%= f.collection_select :genre_id_eq, Genre.all, :id, :genre %></td>     
 		</tr>
 		<tr> 
 		  <td><%= f.label :prefecture, "都道府県" %></td>
-		  <td><%= f.select :prefecture, options_for_select([["北海道"],["青森"],["岩手"],["秋田"],["宮城"],["山形"],["福島"],["山梨"],["長野"],["新潟"],["富山"],["石川"],["福井"],["東京"],["神奈川"],["千葉"],["埼玉"],["茨城"],["栃木"],["群馬"],["愛知"],["静岡"],["岐阜"],["三重"],["岡山"],["広島"],["鳥取"],["島根"],["山口"],["大阪"],["兵庫"],["京都"],["滋賀"],["奈良"],["和歌山"],["愛媛"],["香川"],["高知"],["徳島"],["福岡"],["佐賀"],["長崎"],["熊本"],["大分"],["宮崎"],["鹿児島"],["沖縄"]]) %></td>
+		 
+		  <td><%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name %></td>     
 		</tr>
 		<tr> 
 		  <td><%= f.label :area, "専有面積" %></td>
-		  <td><%= f.select :area, options_for_select([["~20㎡"],["21~40㎡"],["41~60㎡"],["60㎡~"],["問わない"]]) %></td>
+		 <td><%= f.collection_select :area_id_eq, Area.all, :id, :width %></td>   
 		  
 		</tr>
 		<tr> 
-		  <td><%= f.label :etc, "その他条件" %></td>
-		  <td><%= f.search_field :etc, placeholder:"フリーワード" %></td>
+		  <td><%= f.label :intruduction, "その他条件" %></td>
+		  <td><%= f.search_field :intruduction, placeholder:"フリーワード" %></td>
 		</tr>
 		
 		<tr>

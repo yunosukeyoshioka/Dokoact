@@ -74,3 +74,5 @@ gem 'ransack'
 gem 'paranoia'
 
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+
+gem 'pry-byebug'
