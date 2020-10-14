@@ -1,34 +1,42 @@
 
-<h2>条件検索</h2>
-
-<table>
-	<%= search_form_for @q, url: search_properties_path do |f| %>
-		<tr>
-		  <td><%= f.label :property_name, "名称" %></td>
-		  <td><%= f.search_field :property_name_cont %></td>
-		</tr>
-		<tr> 
-		  <td><%= f.label :genre_id, "種別" %></td>
-		  
-		  <td><%= f.collection_select :genre_id_eq, Genre.all, :id, :genre %></td>     
-		</tr>
-		<tr> 
-		  <td><%= f.label :prefecture, "都道府県" %></td>
-		 
-		  <td><%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name %></td>     
-		</tr>
-		<tr> 
-		  <td><%= f.label :area, "専有面積" %></td>
-		 <td><%= f.collection_select :area_id_eq, Area.all, :id, :width %></td>   
-		  
-		</tr>
-		<tr> 
-		  <td><%= f.label :intruduction, "その他条件" %></td>
-		  <td><%= f.search_field :intruduction, placeholder:"フリーワード" %></td>
-		</tr>
-		
-		<tr>
-		  <td><%= f.submit "検索" %></td>
-		</tr>
-	<% end %>
-</table>
+<div class="container">
+	<h2>物件検索</h2>
+	<div class="row">
+		<div class="col-xs-12">    
+		  <div class="row">
+				<div class="col-xs-8 col-xs-offset-1">
+					<table>
+						<%= search_form_for @q, url: search_properties_path do |f| %>
+							<tr>
+							  <td><%= f.label :property_name, "名称" %></td>
+							  <td><%= f.search_field :property_name_cont %></td>
+							</tr>
+							<tr> 
+							  <td><%= f.label :genre_id, "種別" %></td>
+							  
+							  <td><%= f.collection_select :genre_id_eq, Genre.all, :id, :genre %></td>     
+							</tr>
+							<tr> 
+							  <td><%= f.label :prefecture, "都道府県" %></td>
+							 
+							  <td><%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name %></td>     
+							</tr>
+							<tr> 
+							  <td><%= f.label :area, "専有面積" %></td>
+							 	<td><%= f.collection_select :area_id_eq, Area.all, :id, :width %></td>   
+							</tr>
+							<tr> 
+							 	<td><%= f.label :intruduction, "その他検索条件" %></td>
+					  		<td><%= f.search_field :keywords_cont_all, placeholder:"音響設備、客席数など", required: false, label: t('helpers.keywords') %></td>
+					 		</tr>		
+							<tr>
+							  <td><%= f.submit "検索", class: "btn btn-primary" %></td>
+							</tr>
+						<% end %>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+					

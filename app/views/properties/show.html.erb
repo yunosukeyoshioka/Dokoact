@@ -1,29 +1,57 @@
-<h2><%= @property.property_name %></h2>
-<div class="post-meta-top">
-  <div class="price">
-    ¥<%= @property.price %>/日
-  </div>
-  <div class="post-image">
-    <%= image_tag @property.img.to_s %>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-xs-offset-2">
+      <h2 ><%= @property.property_name %></h2>
+      <h3 class="price">¥<%= @property.price %></h3>
+      <div class="post-image">
+        <%= image_tag @property.img.to_s %>
+      </div>
+    
+      <table border="1" width="40%">            
+        <tr>
+          <th class="text-center", width="25%">住所</th>
+          <td class="text-center"><%= @property.prefecture.name %></td> 
+        </tr>
+        <tr>  
+          <th class="text-center">物件種別</th>
+          <td align="center"><%= @property.genre.genre %></td>
+        </tr>
+        <tr>  
+          <th class="text-center">面積</th>
+          <td align="center"><%= @property.area.width %></td>
+        </tr>
+        <tr>  
+          <th class="text-center">その他</th>
+          <td height="100"><%= @property.intruduction %></td>
+        </tr>
+      </table>
+      <div class="btn">
+        <% if @property.user_id != current_user.id %>
+          <%= link_to "ブックマーク登録", favorites_path(id: @property.id), class: "fas fa-warehouse btn btn-info", method: :post  %>
+        <% end %>
+      </div>
+  
+      <div class="btn">
+        <% if @property.user_id == current_user.id %>
+          <%= link_to "投稿の削除", property_path(@property), class: "fas fa-warehouse btn btn-info", method: :delete, "data-confirm" => "本当に削除してよろしいですか？" %>   
+        <% else %>
+          <%= link_to "コンタクトを取る", room_path(@property) %>
+        <% end %> 
+      </div>
+
+
+
+     <!--  <%= form_for(@property, url: properties_path, method: :post) do |f| %>
+        <%= f.hidden_field :test, :value => @property.id %>
+        <%= f.submit %>
+      <% end %>  
+ -->
+
     </div>
-    <div class="post-content">
-      <ul class="meta-info-cells v4 float-wrapper">
-        <h2 class="post-title"><%= @property.property_address %></h2>
-        <li>
-          <%= @property.genre.genre %> 
-        </li>
-        <li>
-          <%= @property.area.width %> 
-        </li>
-        <li>
-          <%= @property.intruduction %> 
-        </li>
-        <div>
-          <%= link_to "ブックマーク登録", favorites_path(id: @property.id), method: :post %>
-        </div>
-          <!-- <i class="fa fa-heart"></i>
-          <a href="#">202 いいね</a> -->
-        
-      </ul>
-    </div>
+  </div>
+</div>
+
+
+
+
+

@@ -1,2 +1,33 @@
-<h1>Rooms#index</h1>
-<p>Find me in app/views/rooms/index.html.erb</p>
+<div class="row">
+  <div class="col-xs-3">
+   <div class="col-xs-6">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            | メッセージ相手
+          </th>  
+          <th>
+            | メッセージ内容
+          </th>
+        </tr>
+      </thead> 
+     </table>    
+      <tbody>
+        <%= @another_message_users.each do |message_user| %>
+        <tr>
+          <td>
+            <%= link_to message_user.user.name, user_path(message_user.user) %>
+          </td>  
+          <td>
+            <%= link_to room_path(message_user.room) do %>
+            <%= Message.find_by(id: message_user.room.message_ids.last)&.body %>
+
+            <% end %>
+             <% end %>
+          </td>  
+        </tr>
+      </tbody>
+    </div>
+  </div>
+</div>

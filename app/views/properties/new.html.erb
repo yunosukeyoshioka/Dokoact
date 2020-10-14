@@ -39,12 +39,11 @@
           <td><%= f.text_field :price, class:"form-control", placeholder:"1日あたりの価格" %></td>      
         </tr>
         <tr>
-          <td><label class="control-label">その他条件</label></td>
-          <td><%= f.text_area :intruduction, class:"form-control", placeholder:"その他" %></td>      
+          <td><label class="control-label">その他情報</label></td>
+          <td><%= f.text_area :intruduction, class:"form-control", placeholder:"客席数、鏡の有無、アクセス、リンクなど" %></td>      
         </tr>
       </table>
     </div>
   </div>
- 
-  <%= f.submit "送信", class:"btn btn-lg btn-block btn-base-1" %>
+  <%= f.submit "送信", class:"btn btn-lg btn-base-1" %>
 <% end %>

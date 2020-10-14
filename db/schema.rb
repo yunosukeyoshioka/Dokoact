@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_08_124140) do
+ActiveRecord::Schema.define(version: 2020_10_13_111011) do
 
   create_table "areas", force: :cascade do |t|
     t.string "width"
@@ -31,12 +31,25 @@ ActiveRecord::Schema.define(version: 2020_10_08_124140) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "message_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "message_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "room_id"
+    t.index ["message_id"], name: "index_message_users_on_message_id"
+    t.index ["room_id"], name: "index_message_users_on_room_id"
+    t.index ["user_id"], name: "index_message_users_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
-    t.integer "sender_id"
-    t.integer "receiver_id"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "room_id"
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "prefectures", force: :cascade do |t|
@@ -59,9 +72,17 @@ ActiveRecord::Schema.define(version: 2020_10_08_124140) do
     t.string "img"
   end
 
+  create_table "room_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_room_users_on_room_id"
+    t.index ["user_id"], name: "index_room_users_on_user_id"
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.integer "property_id"
-    t.integer "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
