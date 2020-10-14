@@ -4,24 +4,26 @@ Rails.application.routes.draw do
   
   resources :users, only: [:show, :create, :edit, :update, :new, :destroy, :unscribe, :withdraw] do
     collection do
-      get 'unscribe'
-      patch 'withdraw'
+      get :unscribe
+      patch :withdraw
     end
   end
 
-
-  resources :properties, only: [:new, :index, :show, :edit, :search, :create, :destroy, :update] do
+#後でindexは消す
+  resources :properties, only: [:new, :index, :show, :edit, :search, :create, :destroy, :update, :my_property] do
     collection do 
       get :search
+      get :my_property
     end
        member do
       post "add", to: "properties#create"
     end
   end
 
-	resources :rooms, only: [:index, :show, :create, :destroy] do
-    resources :messages, only: [:create, :destroy]
-  end
+  resources :messages, only: [:create, :destroy]
+	resources :rooms, only: [:index, :show, :create] 
+    
+  
 
   resources :favorites, only: [:index, :create, :destroy, :withdraw] 
 

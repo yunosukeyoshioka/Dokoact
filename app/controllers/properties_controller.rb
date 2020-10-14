@@ -28,6 +28,9 @@ class PropertiesController < ApplicationController
   end
 #物件の削除
   def destroy
+    @property = Property.find(params[:id])
+    @property.destroy
+    redirect_to user_path(current_user)
   end	
 #物件の編集
   def update
@@ -36,6 +39,9 @@ class PropertiesController < ApplicationController
   #物件の検索画面表示
   #検索アクション
   def search
+    keywords = params.dig(:q, :keywords_cont_all)&.split(/[[:space:]]/)
+    params[:q][:keywords_cont_all] = keywords if keywords
+
     @q = Property.ransack(params[:q])
     if params[:q].present?
       #distinct 検索時に重複がないようにする
@@ -43,6 +49,12 @@ class PropertiesController < ApplicationController
       render :index
     end
   end  
+
+  def my_property
+    # @properties = Property.all
+    # @properties = Property.where(property: property.user_id)
+    @properties = Property.all
+  end
 
   private
   def property_params

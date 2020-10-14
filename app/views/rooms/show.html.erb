@@ -1,2 +1,46 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
+<div class="row">
+  <div class="col-xs-2">
+   <div class="col-xs-8">
+    <div class="page-header">
+      <h3>
+        <%= link_to @another_message_user.user.name, user_path(@another_message_user.user) %>
+      </h3>  
+    </div>    
+    <table>
+      <thead>
+        <tr>
+          <th>
+             送信者
+          </th>  
+          <th>
+             メッセージ
+          </th>
+        </tr>
+      </thead> 
+     </table>    
+      <tbody>
+        <%= @room.messages.each do |message| %>
+        <tr>
+          <td>
+            <%= link_to user_path(message.user) do %>
+              <%= message.user.name %>
+          </td>  
+          <td>
+            <%= message.body %>
+          </td>  
+          <td>
+            <% if message.user == current_user %>
+              <%= link_to '削除', message, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' }, class: 'btn-sm btn-danger' %>
+          </td>       
+          <td>
+            <%= form_with model: @message, url: messages_path, local: true do |f| %>
+              <%= f.text_field :body, class: 'form-control' %>
+              <%= f.hidden_field :room_id, value: @room.id %>
+              <%= f.submit '送信', class: 'btn btn-info btn-block' %>
+            <% end %>
+          </td>  
+        </tr>
+      </tbody>
+    </div>
+  </div>
+</div>

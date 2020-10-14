@@ -1,11 +1,16 @@
-<h2>ブックマーク一覧</h2>
-  <% @favorites.each do |favorite| %>
-    <div>
-    	<%= link_to property_path(favorite.id) do %>
-      <%= favorite.property.property_name %>  
+<div class="container">
+  <h2>マイページ</h2>
+  <div class="row">
+    <div class="col-xs-12">  
+    <h2>ブックマーク一覧</h2>
+      <% @favorites.each do |favorite| %>
+        <ul class="fav">
+        	<%= link_to property_path(favorite.id) do %>
+            <li><%= favorite.property.property_name %></li>
+          <% end %>
+          <li><%= link_to "削除", favorite_path(favorite.id),class: "btn btn-danger", method: :delete %></li>  
+        </ul> 
       <% end %>
     </div>
-    <div>
-      <%= link_to "ブックマークから削除", favorite_path(favorite.id), method: :delete %>        
-    </div>     
-  <% end %>
+  </div>
+</div>

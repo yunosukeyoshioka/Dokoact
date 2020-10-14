@@ -1,9 +1,42 @@
 class UsersController < ApplicationController
 before_action :authenticate_user!, only: [:show, :edit]
 
+#後で消す
+def index
+  @users = User.all
+  
+end
+
 #マイページの表示
   def show
     @user = User.find(params[:id])
+    @properties = Property.where(user_id: @user.id)
+
+
+    #チャット
+    @user = User.find(params[:id])
+    # MessageUserモデルからログインユーザーのレコードを抽出
+    @current_message_user = MessageUser.where(user_id: current_user.id)
+    # MessageUserモデルからメッセージ相手のレコードを抽出
+    @another_message_user = MessageUser.where(user_id: @user.id)
+     
+    unless @user.id == current_user.id
+      @current_message_user.each do |current|
+        @another_message_user.each do |another|
+          # ルームが存在する場合
+          if current.room_id == another.room_id
+            @is_room = true
+            @room_id = current.room_id
+          end
+        end
+      end
+      # ルームが存在しない場合は新規作成
+      unless @is_room
+        binding.pry
+        @room = Room.new
+        @room_user = RoomUser.new
+      end
+    end
   end
 #マイページの編集画面表示
   def edit

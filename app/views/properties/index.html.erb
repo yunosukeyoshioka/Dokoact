@@ -1,33 +1,34 @@
- 
- <% @properties.each do |property| %>
-  <div class="masonry-block">
-    <div class="block block-image v1">
-      <div class="block-image">
-        <div class="view view-first">
-          <%= image_tag property.img.to_s %>
+<div class="container">
+  <h2>物件一覧</h2>
+  <div class="row">
+    <% @properties.each do |property| %>
+      <table> 
+        <div class="col-xs-12 property">       
+          <h3>
+            <%= link_to property_path(property.id) do %>
+              <%= property.property_name %>
+            <% end %>
+          </h3>
+          <p><%= image_tag property.img.to_s %></p>           
+          <tr>
+            <th>物件名</th>
+            <th>物件種別</th>
+            <th>利用料(1日あたり)</th>
+            <th>面積</th>
+          </tr>
+          <tr>
+            <td><%= property.prefecture.name %></td> 
+            <td><%= property.genre.genre %></td>
+            <td>¥<%= property.price %></td>
+            <td><%= property.area.width %></td>
+          </tr>
+          <tr>
+            <td><%= link_to "詳細はこちら", property_path(property.id) %></td>
+          </tr>
         </div>
-      </div>
-      <div class="block-content">
-        <h3 class="block-title">
-          <%= link_to property_path(property.id) do %>
-          <%= property.property_name %>
-          <% end %>
-        </h3>
-
-        <p><%= property.property_address %></p>
-        <p><%= property.genre.genre %></p>
-        <ul>
-          <li>
-            ¥<%= property.price %>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <%= property.area.width %>
-          </li>
-        </ul>
-        <%= link_to "詳細はこちら", property_path(property.id) %>
-      </div>
-    </div>
+      </table>
+    <% end %> 
   </div>
-<% end %>
+</div>
+
+       
