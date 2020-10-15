@@ -13,6 +13,7 @@ class CreateProperties < ActiveRecord::Migration[5.2]
       t.integer :price, default: 0
       t.string :structure
       t.string :parking  
+      t.string :img
 
       t.timestamps
     end

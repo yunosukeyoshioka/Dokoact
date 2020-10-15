@@ -11,19 +11,25 @@ class RoomsController < ApplicationController
   end
 #会話の詳細表示
   def show
-  	@room = Room.find(params[:id])
+    @room = Room.find(params[:id])
     @message = Message.new
+    #メッセージを降順で表示
+
+    @messages = Message.where(room_id:params[:id])
+
     # メッセージ相手を抽出
-    @another_message_user = @room.message_users.find_by('user_id != ?', current_user.id)
+    #@another_message = @room.messages.find_by('user_id != ?', current_user.id)
   end
 #会話(部屋)の作成
   def create
-  	room = Room.create
-    # MessageUserモデルにログインユーザーのレコードを作成
-    current_message_user = MessageUser.create(user_id: current_user.id, room_id: room.id)
-    # MessageUserモデルにメッセージ相手のレコードを作成
-    another_message_user = MessageUser.create(user_id: params[:room_user][:user_id], room_id: room.id)
-    redirect_to room_path(@room)
+    #作成するroomをidと紐付ける。user_idが現在のユーザーでidを取得してroomを作成
+  	room = Room.create do |r|
+      r.room_users.new([
+        {user_id: current_user.id}, 
+        {user_id: params[:user_id]}
+      ])
+    end  
+    redirect_to room_path(room)
   end
 #会話(部屋)削除  
   def destroy

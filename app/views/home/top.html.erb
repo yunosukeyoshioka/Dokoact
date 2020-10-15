@@ -1,8 +1,9 @@
 <div class='row'>
   <div class="col-xs-9">
     <h2>
-      <!-- <span style="display: inline-block;"><%= @item_title %></span> -->
+      日本全国から劇場、貸しスタジオを検索！
     </h2>
+    <br>
     <% @prefectures.each do |prefecture| %>
       <div class="clearfix col-xs-4 item-box space">
         <%= link_to properties_path(prefecture_id:prefecture.id) do %> 

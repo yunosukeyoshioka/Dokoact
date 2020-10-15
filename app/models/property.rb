@@ -8,14 +8,14 @@ class Property < ApplicationRecord
 	has_many :favorites
 	has_many :users, through: :favorites
 	
-	has_many :rooms, through: :messages
+	belongs_to :user
+
+	has_many :rooms
+	has_many :messages, through: :rooms
 
  ransacker :keywords do |parent|
     Arel::Nodes::InfixOperation.new('||', parent.table[:property_name], parent.table[:intruduction])
   end
-
-	
-	
 	
 
 end
