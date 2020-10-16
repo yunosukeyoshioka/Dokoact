@@ -1,21 +1,25 @@
 class RoomsController < ApplicationController
 #会話履歴一覧表示
 	def index
-		current_message_users = current_user.message_users
-    my_room_ids = []
-    current_message_users.each do |message_user|
-      my_room_ids << message_user.room.id
-    end
-    # さらにuser_idがログインユーザーでは無いレコードを抽出
-    @another_message_users = MessageUser.where(room_id: my_room_ids).where.not(user_id: current_user.id)
-  end
+
+  @rooms = Room.all
+  @users = User.all
+
+
+  # @currentRoomUsers = current_user.room_users
+  # myRoomIds = []
+  # @currentRoomUsers.each do |room_user|
+  #   myRoomIds << room_user.room.id
+  # end
+
+  # @anotherRoomUsers = RoomUser.where(room_id: myRoomIds).where('user_id != ?',@user.id)
+end
 #会話の詳細表示
   def show
     @room = Room.find(params[:id])
     @message = Message.new
-    #メッセージを降順で表示
-
-    @messages = Message.where(room_id:params[:id])
+    @messages = Message.where(room_id: params[:id])
+    @room_users = @room.room_users
 
     # メッセージ相手を抽出
     #@another_message = @room.messages.find_by('user_id != ?', current_user.id)

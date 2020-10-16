@@ -13,8 +13,8 @@ class MessagesController < ApplicationController
 	end
 #削除	
 	def destroy	
-		message = Message.find(params[:id])
-    message.destroy
+		@message = Message.find(params[:id])
+    @message.destroy
     redirect_back(fallback_location: root_path)
 	end	
 
