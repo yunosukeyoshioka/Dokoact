@@ -1,12 +1,6 @@
 class UsersController < ApplicationController
 before_action :authenticate_user!, only: [:show, :edit]
 
-#後で消す
-def index
-  @users = User.all
-  
-end
-
 #マイページの表示
   def show
     @user = User.find(params[:id])

@@ -1,5 +1,5 @@
 <!-- チャット履歴一覧画面-->
-
+   <h2>チャット履歴一覧</h2>
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
@@ -16,18 +16,16 @@
         </thead> 
        </table>    
         <tbody>
-          <%= @another_message_users.each do |message_user| %>
-            <tr>
-              <td>
-                <%= link_to message_user.property.property_name, property_path(message_user.property) %>
-              </td>  
-              <td>
-                <%= link_to room_path(message_user.room) do %>
-                  <%= Message.find_by(id: message_user.room.message_ids.last)&.body %>
+          <% @rooms.each do |r| %>
+            <p>
+              <a href="/rooms/<%= r.id %>">            
+                <% @users.each do |u| %>
+                  <%= u.name %>
+                  
                 <% end %>
-              </td>  
-            </tr>
-          <% end %>  
+              </a>
+            </p>
+          <% end %>
         </tbody>
       </div>
     </div>
