@@ -16,15 +16,15 @@
         </thead> 
        </table>    
         <tbody>
-          <% @rooms.each do |r| %>
-            <p>
-              <a href="/rooms/<%= r.id %>">            
-                <% @users.each do |u| %>
-                  <%= u.name %>
-                  
-                <% end %>
-              </a>
-            </p>
+          <% @anotherRoomUsers.each do |r| %>
+            <div class="users-index-ite">                      
+              <%= link_to room_path(r.room.id) do %>
+                <%= r.user.name %><br>
+              <% end %>
+              <% @rooms.each do |room| %>
+                <%= room.messages.order(created_at: :desc).take.try(:content) %><br>
+              <% end %><br>     
+            </div>
           <% end %>
         </tbody>
       </div>

@@ -5,7 +5,7 @@
       <% @favorites.each do |favorite| %>
         <ul class="fav">
         	<%= link_to property_path(favorite.id) do %>
-            <li><%= favorite.property.property_name %></li>
+            <li><h3><%= favorite.property.property_name %></h3></li>
           <% end %>
           <li><%= link_to "削除", favorite_path(favorite.id),class: "btn btn-danger", method: :delete %></li>  
         </ul> 
