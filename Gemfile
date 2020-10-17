@@ -76,3 +76,5 @@ gem 'ransack'
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 
 gem 'pry-byebug'
+#エラーメッセージの日本語化
+gem 'rails-i18n'

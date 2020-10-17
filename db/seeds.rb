@@ -17,8 +17,6 @@
     )
 
 
-
-
  Genre.create!(
     id: 1,
     genre: "劇場"
@@ -28,12 +26,17 @@
     genre: "貸しスタジオ"
   )
 
-  Area.create!(width: "~20㎡")
-  Area.create!(width: "21~40㎡")
-  Area.create!(width: "41~60㎡")
-  Area.create!(width: "61㎡~")
+  Area.create!(width: "~50㎡")
+  Area.create!(width: "51~100㎡")
+  Area.create!(width: "101~150㎡")
+  Area.create!(width: "151~200㎡")
+  Area.create!(width: "201~300㎡")
+  Area.create!(width: "300~500㎡")
+  Area.create!(width: "501~700㎡")
+  Area.create!(width: "701~1000㎡")
+  Area.create!(width: "1001~1500㎡")
+  Area.create!(width: "1500㎡~")
   Area.create!(width: "問わない")
-
 
 
   #

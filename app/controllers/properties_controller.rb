@@ -11,26 +11,26 @@ class PropertiesController < ApplicationController
 #物件詳細画面の表示
   def show
     @property = Property.find(params[:id])
-
     #ログインしているユーザーが自分じゃなければチャットを行う
-
-    @currentUserEntry=RoomUser.where(user_id: current_user.id)
-    @userEntry=RoomUser.where(user_id: @property.user.id)
-    if@property.user == current_user.id
-    else
-      @currentUserEntry.each do |cu|
-        @userEntry.each do |u|
-          if cu.room_id == u.room_id then
-            @isRoom = true
-            @room = cu.room_id
-          end
-        end
-    
-      if @isRoom
+    if user_signed_in?
+      @currentUserEntry=RoomUser.where(user_id: current_user.id)
+      @userEntry=RoomUser.where(user_id: @property.user.id)
+      if@property.user == current_user.id
       else
-        @isRoom = false
+        @currentUserEntry.each do |cu|
+          @userEntry.each do |u|
+            if cu.room_id == u.room_id then
+              @isRoom = true
+              @room = cu.room_id
+            end
+          end
+      
+        if @isRoom
+        else
+          @isRoom = false
+        end
       end
-    end
+    end  
   end
 
 
@@ -74,14 +74,9 @@ class PropertiesController < ApplicationController
   end  
 
   def my_property
-    # @properties = Property.all
-    @user = User.find(params[:id])
-    #@property = Property.find(params[:id])
-    @properties = @user.properties(params[:property])
-
-
+    @user = current_user
+    @properties = Property.where(user_id: @user.id)
   end
-
 
 
 
