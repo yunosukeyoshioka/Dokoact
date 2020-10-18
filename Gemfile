@@ -78,3 +78,8 @@ gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem 'pry-byebug'
 #エラーメッセージの日本語化
 gem 'rails-i18n'
+#MySQL
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
