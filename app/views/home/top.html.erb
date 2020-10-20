@@ -1,38 +1,71 @@
-<div class='row'>
-  <div class="col-xs-9">
-    <h2>
-      日本全国から劇場、貸しスタジオを検索！
-    </h2>
+<div class="container">
+  <div class='row'>
+    <div class="col-xs-12">
+      <!--ギャラリーエリア-->
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide"><img src="assets/theater1.jpg"></div>
+              <div class="swiper-slide"><img src="assets/theater2.jpg"></div>
+              <div class="swiper-slide"><img src="assets/theater3.jpg"></div>
+              <div class="swiper-slide"><img src="assets/theater4.jpg"></div>
+            </div>
+          <!-- If we need pagination -->
+            <div class="swiper-pagination swiper-pagination-white"></div>
+          <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-button-next swiper-button-white"></div>
+        <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+          </div>
+        </div>      
+      </div>    
 
-    <!--ギャラリーエリア-->
-  
-      
+      <section id="sec01">
+        <header>
+          <h2><span>Introduction</span></h2>
+        </header>
+        <div class="innerS">
+          ドコアクトは日本全国の劇場や貸しスタジオを手軽に探すことのできるサイトです。
+          借りるだけではなく、劇場やスタジオを所有しているユーザーは物件を投稿し、必要としている方へ貸し出すこともできます。
+          気になる物件を見つけたら「物件詳細」ページからチャットで投稿者に連絡をしてみましょう。 
+          まずは下の都道府県一覧から物件を探してみましょう。 
+        </div>
+      </section>
         
-    
-        <div id="slide_show">
-          <ul id="slide">
-            <li><img src="assets/theater1.jpg"></li> 
-            <li><img src="assets/theater2.jpg"></li>
-            <li><img src="assets/theater3.jpg"></li>
-            <li><img src="assets/theater4.jpg"></li>
-          </ul>
-          <div id="nav_btn">
-            <a class="prev"><img src="assets/btn_prev.png"></a>
-            <a class="next"><img src="assets/btn_next.png"></a>
-          </div>
-        </div>  
+      <section class="prefectures">
+        <% @prefectures.each do |prefecture| %>
+            <div class="clearfix col-xs-2">
+              <%= link_to properties_path(prefecture_id:prefecture.id), class: 'btn prefecture' do %> 
+                <div class="row">
+                  <h4><%= prefecture.name %></h4>
+                </div>
+              <% end %>  
+            </div> 
+          <% end %> 
+      </section>
       
-    
+      <section id="sec02">
+      <header>
+        <h2><span>Contact</span></h2>
+      </header>
+      <div class="innerS">
+        <ul class="co-xs-l2">
+          <li>
+            <p>〒251-0032<br>神奈川県藤沢市片瀬5-4-11</p>
+            <p>TEL 080-6555-7966</p>
+            <p>e-Mail yunosukeyoshioka@gmail.com</p>
+            <p>※ご不明点がありましたらご連絡ください。</p>
+          </li> 
+        </ul>
+      </div>
+    </section>
 
-    <br>
-    <% @prefectures.each do |prefecture| %>
-      <div class="clearfix col-xs-4 item-box space">
-        <%= link_to properties_path(prefecture_id:prefecture.id) do %> 
-          <div class="row">
-            <h4><%= prefecture.name %></h4>
-          </div>
-        <% end %>  
-      </div> 
-    <% end %>   
+    </div>
   </div>
-</div>
+</div>  
+
+
+
