@@ -39,7 +39,7 @@
   Area.create!(width: "問わない")
 
 
-  #
+  #県データ
   Prefecture.create!(id: 1, name: "北海道")
   Prefecture.create!(id: 2, name: "青森")
   Prefecture.create!(id: 3, name: "岩手")
