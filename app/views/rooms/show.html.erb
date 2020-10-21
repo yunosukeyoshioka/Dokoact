@@ -1,38 +1,56 @@
 <body>
-   <h2>チャットルーム参加者</h2>
-    <% @room_users.each do |r| %>
-      <strong><%= r.user.name %>さん</strong>
-    <% end %>
-    <div class="container">
-      <div class="chat-area">
-        <% @messages.each do |message| %>
-          <div class="user_name">
-            <%= message.user.name %>さん
-          </div> 
-          <div class="text">
-            <h4><%= message.body %></h4>
-          </div>
-          <div class="metadata">
-            <%= time_ago_in_words message.created_at %>
-          </div>
-          <% if message.user_id == current_user.id %>
-            <%= link_to "削除", message_path(message), method: :delete %>
-          <% end %>   
+  <h2 class="title">チャットルーム参加者</h2>
+  <div class="container">
+    <div class="chat-area">
+      <div class="content">
+        <% @room_users.each do |r| %>
+          <strong><%= r.user.name %>さん</strong>
         <% end %>
       </div>
-      <div class="message-area">
-        <div class="message-area-text">
-          <%= form_with(model: @message) do |form| %>
-            <%= form.hidden_field :room_id, :value => @room.id %>
-            <div class="field">
-              <%= form.text_area :body, rows: 5, placeholder: 'コメントを入力してください' %>
+      <!--発言者の左右区別-->
+      <% @messages.each do |message| %>
+        <%if message.user == current_user %>
+          <div class="text-right">
+            <div class="user_name">
+              <%= message.user.name %>
+            </div> 
+            <div class="text">
+              <h5><%= message.body %></h5>
             </div>
-            <div class="message-area-button">
-             <%= form.submit '送信', class: "message-area-button " %>
+            <div class="metadata">
+              <%= time_ago_in_words message.created_at %>
             </div>
-          <% end %>
-        </div>
-      </div>  
+            <div class="delete">
+              <%= link_to "削除", message_path(message), method: :delete %>
+            </div> 
+          </div>  
+        <% else %>
+          <div class="text-left">        
+            <div class="user_name">
+              <%= message.user.name %>さん
+            </div> 
+            <div class="text">
+              <h5><%= message.body %></h5>
+            </div>
+            <div class="metadata">
+              <%= time_ago_in_words message.created_at %>
+            </div>
+          </div>  
+        <% end %>
+      <% end %>
     </div>
+    <div class="message-area">
+      <div class="message-area-text">
+        <%= form_with(model: @message) do |form| %>
+          <%= form.hidden_field :room_id, :value => @room.id %>
+          <div class="field">
+            <%= form.text_area :body, rows: 5, placeholder: 'コメントを入力してください' %>
+          </div>
+          <div class="message-area-button">
+            <%= form.submit '送信', class: "message-area-button " %>
+          </div>
+        <% end %>
+      </div>
+    </div>  
   </div>
 </body>

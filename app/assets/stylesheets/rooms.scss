@@ -7,16 +7,6 @@
   overflow: scroll
 }
 
-/* テキストエリアは80%で表示 */
-.message-area-text {
- width: 80%;
-}
-
-/* テキストエリアは20%で表示 */
-.message-area-button {
- width: 20%;
-}
-
 /* テキストエリアはリサイズをできなくして、横幅いっぱいに表示 */
 .message-area-text textarea {
  width: 100%;
@@ -38,11 +28,39 @@
 .text{
 	position: relative;
   display: inline-block;
-  margin: 1.5em 15px 1.5em 0;
-  padding: 7px 10px;
   min-width: 120px;
   max-width: 100%;
   color: #555;
   font-size: 16px;
   background: #e0edff;
+}
+
+
+
+.metadata{
+  font-size:5px;
+}
+
+.delete{
+   padding-bottom:20px;
+}
+
+
+.title{
+  text-align: center;
+}
+
+.content{
+  background-color: gray;
+  text-align: center;
+  padding: 10px;
+}
+
+
+.text-left{
+  padding-left:50px;
+}
+
+.text-right{
+  padding-right:50px;
 }

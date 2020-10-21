@@ -20,6 +20,6 @@ validates :email, presence: true, uniqueness: true, length: {minimum:4}
 validates :postcode, length: {is: 7}, numericality: { only_integer: true }
 validates :phone_number, presence: true, length: {minimum:9}
 #paranoia
-#acts_as_paranoid
+acts_as_paranoid
 end
 
