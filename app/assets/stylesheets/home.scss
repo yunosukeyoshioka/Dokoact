@@ -1,0 +1,106 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* スライドショー */
+
+#slide_show{
+	width: 100%;
+	max-width:640px;
+	overflow: hidden;
+	position: relative;
+	margin: 0 auto;
+
+}
+
+#slide{
+	width: 10000px;
+	list-style: none;
+
+}
+
+#slide li{
+float: left;
+}
+
+#nav_btn .prev{
+	position: absolute;
+	left: 10px;
+	top: 50px;
+	margin-top: -25px;
+}
+
+#nav_btn .next{
+	position: absolute;
+	right: 10px;
+	top: 50px;
+	margin-top: -25px;
+}
+
+
+
+
+.swiper-slide img{
+	width: 100%;
+	height: 100%;  
+}
+
+
+
+.swiper-container {
+    width: 800px;
+    height: 300px;
+}
+
+ .prefectures{  
+  font-size: 20px;
+  font-family: "メイリオ";
+}
+
+header h2{
+	padding-top:50px;
+}
+
+
+
+
+
+
+#sec04{
+	padding-bottom: 0 !important;
+}
+
+.article{
+	clear: both;
+	overflow: hidden;
+	padding-bottom: 50px;
+}
+
+.article img{
+	float: left;
+	margin: 5px 20px 20px;
+}
+
+.article p{
+	margin-bottom: 20px;
+}
+
+
+.contact{
+	text-align: center;
+}
+
+.prefecture{
+	width: 100px;
+	margin:10px; 
+	background-color:#CCFFFF;
+}
+
+
+
+
+
+
+
+
+

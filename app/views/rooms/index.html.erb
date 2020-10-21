@@ -1,0 +1,32 @@
+<!-- チャット履歴一覧画面-->
+   <h2>チャット履歴一覧</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <table>
+        <thead>
+          <tr>
+            <th>
+               メッセージ相手
+            </th>  
+            <th>
+               メッセージ内容
+            </th>
+          </tr>
+        </thead> 
+       </table>    
+        <tbody>
+          <% @anotherRoomUsers.each do |r| %>
+            <div class="users-index-ite">                      
+              <%= link_to room_path(r.room.id) do %>
+                <%= r.user.name %><br>
+              <% end %>
+              <% @rooms.each do |room| %>
+                <%= room.messages.order(created_at: :desc).take.try(:content) %><br>
+              <% end %><br>     
+            </div>
+          <% end %>
+        </tbody>
+      </div>
+    </div>
+  </div>

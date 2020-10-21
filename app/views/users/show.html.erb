@@ -1,0 +1,46 @@
+<script src="https://kit.fontawesome.com/da6e295665.js" crossorigin="anonymous"></script>
+<div class="container">
+	<h2>マイページ</h2>
+	<div class="row">
+		<div class="col-xs-12">    
+		  <div class="row">
+				<div class="col-xs-8 col-offset-2">
+					<table class="table table-bordered table-condensed">
+						<h3><strong class="information-link"><i class="far fa-user"></i>登録情報</strong></h3>
+						<tr>
+							<td class="info col-xs-3"><strong>氏名</strong></td>
+							<td class="text-left"><%= @user.name %></td>
+						</tr>
+						<tr>
+							<td class="info"><strong>郵便番号</strong></td>
+							<td class="text-left"><%= @user.postcode %></td>
+						</tr>
+						<tr>
+							<td class="info"><strong>住所</strong></td>
+							<td class="text-left"><%= @user.address %></td>
+						</tr>
+						<tr>
+							<td class="info"><strong>電話番号</strong></td>
+							<td class="text-left"><%= @user.phone_number %></td>
+						</tr>
+						<tr>
+							<td class="info"><strong>メールアドレス</strong></td>
+							<td class="text-left"><%= @user.email %></td>
+						</tr>			
+					</table>		
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-8 col-offset-2">
+					<div class="col-xs-4 btn"><%= link_to "会員情報編集", edit_user_path, class: "fas fa-wrench btn btn-success" %></div>
+					<div class="col-xs-4 btn"><%= link_to "パスワード変更", user_path, class: "fas fa-cog btn btn-warning" %></div>
+					<div class="col-xs-4 btn"><%= link_to "ブックマーク", favorites_path, data: {"turbolinks" => false}, class: "fas fa-bookmark btn btn-info" %></div>				
+					<div class="col-xs-4 btn"><%= link_to " コンタクト済み", rooms_path, class: "fas fa-paper-plane btn btn-info" %></div>
+					<div class="col-xs-4 btn"><%= link_to "物件の新規投稿", new_property_path, class: "fas fa-warehouse btn btn-info" %></div>
+					<div class="col-xs-4 btn"><%= link_to "自分が投稿した物件", my_property_properties_path, class: "fas fa-house-user btn btn-info" %></div>
+				</div>
+			</div>		
+  	</div>		
+	</div>
+</div>
+

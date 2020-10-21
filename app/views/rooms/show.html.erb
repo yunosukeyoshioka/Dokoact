@@ -1,0 +1,38 @@
+<body>
+   <h2>チャットルーム参加者</h2>
+    <% @room_users.each do |r| %>
+      <strong><%= r.user.name %>さん</strong>
+    <% end %>
+    <div class="container">
+      <div class="chat-area">
+        <% @messages.each do |message| %>
+          <div class="user_name">
+            <%= message.user.name %>さん
+          </div> 
+          <div class="text">
+            <h4><%= message.body %></h4>
+          </div>
+          <div class="metadata">
+            <%= time_ago_in_words message.created_at %>
+          </div>
+          <% if message.user_id == current_user.id %>
+            <%= link_to "削除", message_path(message), method: :delete %>
+          <% end %>   
+        <% end %>
+      </div>
+      <div class="message-area">
+        <div class="message-area-text">
+          <%= form_with(model: @message) do |form| %>
+            <%= form.hidden_field :room_id, :value => @room.id %>
+            <div class="field">
+              <%= form.text_area :body, rows: 5, placeholder: 'コメントを入力してください' %>
+            </div>
+            <div class="message-area-button">
+             <%= form.submit '送信', class: "message-area-button " %>
+            </div>
+          <% end %>
+        </div>
+      </div>  
+    </div>
+  </div>
+</body>

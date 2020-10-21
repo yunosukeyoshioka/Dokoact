@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>物件一覧</h2>
+  <div class="row">
+    <% @properties.each do |property| %>
+      <table> 
+        <div class="col-xs-12 property">       
+          <h3>
+            <%= link_to property_path(property.id) do %>
+              <%= property.property_name %>
+            <% end %>
+          </h3>
+          <% if property.img? %>
+            <p><%= image_tag property.img.to_s %></p>   
+          <% else %>
+            <%= image_tag attachment_url(@user, :profile_image, :fill, 300, 300, fallback: "no_image.jpg"), size:'300x300' %>    
+          <% end %>
+         
+          <tr>
+            <th>物件名</th>
+            <th>物件種別</th>
+            <th>利用料(1日あたり)</th>
+            <th>面積</th>
+            <th>投稿者</th>
+          </tr>
+          <tr>
+            <td><%= property.prefecture.name %></td> 
+            <td><%= property.genre.genre %></td>
+            <td>¥<%= property.price %></td>
+            <td><%= property.area.width %></td>
+            <td><%= property.user.name %></td>
+          </tr>
+          <tr>
+            <td><%= link_to "詳細はこちら", property_path(property.id) %></td>
+          </tr>
+        </div>
+      </table>
+    <% end %> 
+  </div>
+</div>
+
+       
