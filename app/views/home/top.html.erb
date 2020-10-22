@@ -25,7 +25,7 @@
 
       <section>
         <header>
-          <h2><span>Introduction</span></h2>
+          <h2>Introduction</h2>
         </header>
         <div class="intro">
           ドコアクトは日本全国の劇場や貸しスタジオを手軽に探すことのできるサイトです。
@@ -37,7 +37,7 @@
         
       <section class="prefectures">
         <% @prefectures.each do |prefecture| %>
-            <div class="clearfix col-xs-2">
+            <div class="col-xs-2">
               <%= link_to properties_path(prefecture_id:prefecture.id), class: 'btn prefecture' do %> 
                 <div class="row">
                   <h4><%= prefecture.name %></h4>

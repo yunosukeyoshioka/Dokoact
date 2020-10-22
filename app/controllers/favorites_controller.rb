@@ -24,8 +24,5 @@ class FavoritesController < ApplicationController
       redirect_to favorites_path
     end
   end
-#いいねの削除
-  def withdraw
-  end
 
 end

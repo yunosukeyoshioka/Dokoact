@@ -50,7 +50,7 @@
           <div class="btn">
             <% if user_signed_in? %>  
               <% if @property.user_id == current_user.id %>
-                <%= link_to "投稿の削除", property_path(@property), class: "fas fa-warehouse btn btn-info", method: :delete, "data-confirm" => "本当に削除してよろしいですか？" %>   
+                <%= link_to "投稿の削除", property_path(@property), class: "fas fa-warehouse btn btn-info", method: :delete, "data-confirm" => "本当に削除してよろしいですか？" %>
               <% end %>
 
               <% if @property.user_id != current_user.id %>
