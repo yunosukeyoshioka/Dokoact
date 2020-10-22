@@ -55,10 +55,6 @@ class PropertiesController < ApplicationController
     @property.destroy
     redirect_to user_path(current_user)
   end	
-#物件の編集
-  def update
-  end
-
   #物件の検索画面表示
   #検索アクション
   def search

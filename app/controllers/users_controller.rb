@@ -58,7 +58,6 @@ before_action :authenticate_user!, only: [:show, :edit]
     current_user.destroy
     reset_session
     redirect_to root_path, info: 'ありがとうございました。またのご利用を心よりお待ちしております。'
-
   end
 
 private

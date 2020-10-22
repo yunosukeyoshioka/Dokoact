@@ -9,8 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-#後でindexは消す
-  resources :properties, only: [:new, :index, :show, :edit, :search, :create, :destroy, :update, :my_property] do
+  resources :properties, only: [:new, :index, :show, :edit, :search, :create, :destroy, :my_property] do
     collection do 
       get :search
       get :my_property
@@ -25,7 +24,7 @@ Rails.application.routes.draw do
     
   
 
-  resources :favorites, only: [:index, :create, :destroy, :withdraw] 
+  resources :favorites, only: [:index, :create, :destroy] 
 
   resources :prefectures, only: [:create]
   resources :areas, only: [:create]

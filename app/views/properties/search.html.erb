@@ -23,12 +23,10 @@
 						</tr>
 						<tr> 
 						 	<td><%= f.label :intruduction, "その他検索条件" %></td>
-				  		<td><%= f.search_field :keywords_cont_all, placeholder:"音響設備、客席数など", required: false, label: t('helpers.keywords') %></td>
-				 		</tr>		
-						<tr>
-						  <td class="col-xs-offset-10 col-xs-5"><%= f.submit "検索", class: "btn btn-primary" %></td>
-						</tr>
+				  		<td><%= f.search_field :keywords_cont_all, placeholder: search_placeholder, required: false, label: t('helpers.keywords'), class: "introduction" %></td>
+				 		</tr>			
 					</table>	
+					<p><%= f.submit "検索", class: "btn btn-primary" %></p>
 				<% end %>				
 			</div>
 		</div>	

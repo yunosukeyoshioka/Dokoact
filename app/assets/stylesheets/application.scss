@@ -57,7 +57,6 @@ padding-top:40px;
 
 /* 共通
 ------------------------------------------------------------*/
-
 section{
   clear:both;
   padding-top: 70px;
@@ -92,3 +91,47 @@ section h2 span {
 .top-menu{
   padding-top:80px;
 }
+
+
+
+
+/* PCサイズ（1024px）以下の際に適用される設定 */
+@media screen and (max-width:1024px) {
+
+}
+
+
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  ul {
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .swiper-container{
+    width: 600px;
+  }
+}
+
+
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  ul {
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .swiper-container{
+    height: 200px;
+    width: 300px;
+  }
+  .intro{
+    width: 200px;
+  }
+
+  
+}
+
+
+
