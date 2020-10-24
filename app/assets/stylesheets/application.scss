@@ -19,6 +19,15 @@
 @import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 
+
+/*リセット
+------------------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* ヘッダー
 ------------------------------------------------------------*/
 #header{
@@ -37,7 +46,7 @@ padding-top:40px;
 ------------------------------------------------------------*/
 #footer{
   clear: both;
-  padding: 50px 10px 50px 0;
+  padding: 150px 10px 50px 0;
   text-align: center;
   font-size: 12px;
 }
@@ -45,20 +54,14 @@ padding-top:40px;
 
 /* 共通
 ------------------------------------------------------------*/
-body{
-  font-family:auto;
- 
-  font-weight: 300;
-  -webkit-text-size-adjust:100%;
-  overflow-x: hidden;
-  color: #000;
-  background: #fff;
-}
 
+h2{
+  text-align:center;
+}
 
 section{
   clear:both;
-  padding-top: 70px;
+  padding-top: 50px;
 }
 
 section h2{
@@ -70,23 +73,14 @@ section h2{
   text-align: center;
 }
 
-.inner{
-  width: 94%;
-  margin: 0 auto;
-  padding-bottom: 50px;
-}
-
-.intro{
-  width: 35%;
-  margin: 0 auto;
-  padding-bottom: 30px;
-}
 
 .top-menu{
   padding-top:40px;
 }
 
-
+.property_table{
+  text-align:center;
+}
 
 
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 
@@ -100,6 +94,9 @@ section h2{
   }
   .swiper-container{
     width: 600px;
+  }
+  .icon{
+  margin-top:10px;
   }
 }
 
@@ -136,6 +133,41 @@ section h2{
     flex-direction: column;
   }
 
+  .icon{
+    margin-top:10px;
+  }
+
+
+  .property_table{
+  font-size:5px;
+  text-align:center;
+  }
+
+  .prefecture{
+  display:flex;
+  width:90%;
+  background-color:#FFFFCC;
+  border: 1px solid black;
+  }
+
+  .prefecture h4{
+  padding-left:100px;
+  }
+
+
+  .prefectures{  
+   background-color:white;
+   border:none;
+
+  }
+
+  .article2{
+    padding-top:50px;
+  }
+
+  .contact{
+  width:70%;
+  }
 }
 
 

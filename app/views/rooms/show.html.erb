@@ -1,4 +1,4 @@
-<body>
+<!--チャット画面-->
   <h2 class="title">チャットルーム参加者</h2>
   <div class="container">
     <div class="chat-area">
@@ -8,11 +8,12 @@
         <% end %>
       </div>
       <!--会話の一覧-->
-      <%= render 'messages' %>
+      <%= render 'messages/messages' %>
     </div>
     <div class="message-area">
       <div class="message-area-text">
-        <%= form_with model: @message, remote: true do |form| %>
+        <!--remote: trueを追加-->
+        <%= form_with model: @message do |form| %>
           <%= form.hidden_field :room_id, :value => @room.id %>
           <div class="field">
             <%= form.text_area :body, rows: 5, placeholder: 'コメントを入力してください' %>
@@ -24,4 +25,4 @@
       </div>
     </div>  
   </div>
-</body>
+

@@ -9,7 +9,6 @@ class MessagesController < ApplicationController
     else
       redirect_back(fallback_location: root_path)
     end
-
 	end
 #削除	
 	def destroy	

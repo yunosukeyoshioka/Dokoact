@@ -25,16 +25,16 @@ end
     @message = Message.new
     @messages = Message.where(room_id: params[:id])
     @room_users = @room.room_users
-    
   end
 #会話(部屋)の作成
   def create
   #作成するroomをidと紐付ける。user_idが現在のユーザーでidを取得してroomを作成
-  	room = Room.create do |r|
+  	@room = Room.create do |r|
       r.room_users.new([
         {user_id: current_user.id}, 
         {user_id: params[:user_id]}
       ]) 
-    end  
+    end
+     　redirect_to room_path(@room)
   end
 end

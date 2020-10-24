@@ -1,19 +1,27 @@
 <div class="container">
+  <h2 class="text-center">ブックマーク一覧</h2>
   <div class="row">
-    <div class="col-xs-12">  
-    <h2 class="text-center">ブックマーク一覧</h2>
-     <div class="field row">
+    <div class="col-sm-12">  
+     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
-      <% @favorites.each do |favorite| %>
-        <ul class="fav">
-        	<%= link_to property_path(favorite.id) do %>
-            <li><h3><%= favorite.property.property_name %></h3></li>
+        <table class="table-bordered table-condensed">  
+          <tr>
+            <th>お気に入り登録した物件</th>
+          </tr>
+          <% @favorites.each do |favorite| %>
+            <tr>
+            	<td>
+                <%= link_to property_path(favorite.id) do %>
+                  <%= favorite.property.property_name %>    
+                <% end %>
+              </td>
+              <td>    
+                <%= link_to "削除", favorite_path(favorite.id),class: "btn btn-danger", method: :delete %>  
+              </td>  
+            </tr> 
           <% end %>
-          <li><%= link_to "削除", favorite_path(favorite.id),class: "btn btn-danger", method: :delete %></li>  
-        </ul> 
-      <% end %>
-    </div>
-  </div>
+        </table>
+      </div>
     </div>
   </div>
 </div>

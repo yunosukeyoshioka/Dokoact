@@ -7,8 +7,12 @@ table th{
 }
 
 .property{
-	border-bottom: 1px solid #C0C0C0;
 	padding-bottom: 20px;
+}
+
+.property_name{
+	border-top: 1px solid #C0C0C0;
+	padding-top: 20px;
 }
 
 .price{ 
@@ -17,6 +21,7 @@ table th{
 
 .post-image{
 	margin-bottom:50px;
+	text-align:center;
 }
 
 
@@ -42,4 +47,8 @@ table th{
 .index-image{
 	width:300px;
 	height:300px;
+}
+
+td, th{
+	padding-top:20px;
 }
