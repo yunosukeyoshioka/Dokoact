@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="property_index col-sm-12">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
           <h2><%= @property.property_name %></h2>
@@ -43,19 +43,19 @@
           </table>  
           <div class="btn">
             <% if user_signed_in? && (@property.user_id != current_user.id) %>
-              <%= link_to "ブックマーク登録", favorites_path(id: @property.id), class: "fas fa-warehouse btn btn-info", method: :post  %>
+              <%= link_to "ブックマーク登録", favorites_path(id: @property.id), class: "btn btn-success", method: :post  %>
             <% end %>
           </div>
       
           <div class="btn">
             <% if user_signed_in? %>  
               <% if @property.user_id == current_user.id %>
-                <%= link_to "投稿の削除", property_path(@property), class: "fas fa-warehouse btn btn-info", method: :delete, "data-confirm" => "本当に削除してよろしいですか？" %>
+                <%= link_to "投稿の削除", property_path(@property), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除してよろしいですか？" %>
               <% end %>
 
               <% if @property.user_id != current_user.id %>
                 <% if @isRoom %>
-                  <%= link_to "コンタクトを取る", room_path(@room) %>
+                  <%= link_to "コンタクトを取る", room_path(@room), class: "btn btn-info" %>
                 <% else %>
                   <%= link_to "コンタクトを取る", rooms_path(user_id: @property.user_id, room_id: @room), method: :post %>  
                 <% end %> 

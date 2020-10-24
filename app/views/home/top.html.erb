@@ -23,21 +23,19 @@
         </div>      
       </div>    
 
-      <section>
-        <header>
-          <h2>Introduction</h2>
-        </header>
+      <section>   
+        <h2>Introduction</h2>
         <div class="intro">
           ドコアクトは日本全国の劇場や貸しスタジオを手軽に探すことのできるサイトです。
           借りるだけではなく、劇場やスタジオを所有しているユーザーは物件を投稿し、必要としている方へ貸し出すこともできます。
           気になる物件を見つけたら「物件詳細」ページからチャットで投稿者に連絡をしてみましょう。 
-          まずは下の都道府県一覧から物件を探してみましょう。 
+          まずは下の<span>都道府県一覧</span>から物件を検索してみましょう。 
         </div>
       </section>
 
       <section>   
         <div class="row">  
-          <div class="col-sm-12">
+          <div class="prefectures col-sm-12">
             <% @prefectures.each do |prefecture| %>     
               <%= link_to properties_path(prefecture_id:prefecture.id), class: 'btn prefecture' do %> 
                 <h4><%= prefecture.name %></h4>
@@ -49,19 +47,14 @@
 
       <section>
         <header>
-          <h2><span>Contact</span></h2>
+          <h2>Contact</h2>
         </header>
-        <div class="intro row">
-          <div class="col-sm-12">  
-            <ul>
-              <li>
-                <p>〒251-0032<br>神奈川県藤沢市片瀬5-4-11</p>
-                <p>TEL 080-6555-7966</p>
-                <p>e-Mail yunosukeyoshioka@gmail.com</p>
-                <p>※ご不明点がありましたらご連絡ください。</p>
-              </li> 
-            </ul>
-          </div>  
+        <div class="contact">
+          〒251-0032<br>
+          神奈川県藤沢市片瀬5-4-11<br>
+          TEL 080-6555-7966<br>
+          e-Mail yunosukeyoshioka@gmail.com<br>
+          ※本サイトでご不明点がありましたらご連絡ください。 
         </div>
       </section>
     </div>
