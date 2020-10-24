@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-12">
       <h2 class="text-center">施設・物件の新規投稿</h2>
       <%= form_for(@property, url: properties_path) do |f| %>
         <% if @property.errors.any? %>
@@ -13,15 +13,11 @@
             </ul>
           </div>
         <% end %> 
-        <div class="col-xs-8 col-xs-offset-2 ">
-          <div class="text-center">
+        <div class="field row">
+          <div class="col-sm-8 col-sm-offset-4">
             <table>
               <tr>
-                <td><%= f.file_field :img, class: "image" %></td>
-               <!--  <td><%= f.check_box :remove_img %>画像を削除する</td> -->
-              </tr>
-              <tr>
-                <td><label class="control-label sr-only">名称</label></td>
+                <td><label class="control-label">名称</label></td>
                 <td><%= f.text_field :property_name, class:"form-control", placeholder:"施設名" %></td>
               </tr>
               <tr>
@@ -44,11 +40,10 @@
               <tr>
                 <td><label class="control-label">その他情報</label></td>
                 <td><%= f.text_area :intruduction, class:"form-control", placeholder:"客席数、鏡の有無、アクセス、リンクなど" %></td>      
-              </tr>
-              <tr>
-                 <td><%= f.submit "投稿", class:"btn btn-lg btn-base-1" %></td>
-              </tr>   
+              </tr>  
             </table>
+              <%= f.file_field :img, class: "images" %>
+            <p><%= f.submit "投稿", class:"search btn btn-lg btn-base-1" %></p>
           </div>
         </div>         
       <% end %>

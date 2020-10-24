@@ -1,9 +1,9 @@
 <div class="container">
   <div class='row'>
-    <div class="col-xs-12">
+    <div class="col-sm-12">
       <!--ギャラリーエリア-->
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-sm-12">
           <div class="swiper-container">
             <div class="swiper-wrapper">
               <!-- Slides -->
@@ -34,32 +34,34 @@
           まずは下の都道府県一覧から物件を探してみましょう。 
         </div>
       </section>
-        
-      <section class="prefectures">
-        <% @prefectures.each do |prefecture| %>
-            <div class="col-xs-2">
+
+      <section>   
+        <div class="row">  
+          <div class="col-sm-12">
+            <% @prefectures.each do |prefecture| %>     
               <%= link_to properties_path(prefecture_id:prefecture.id), class: 'btn prefecture' do %> 
-                <div class="row">
-                  <h4><%= prefecture.name %></h4>
-                </div>
+                <h4><%= prefecture.name %></h4>
               <% end %>  
-            </div> 
-          <% end %> 
-      </section>
-      
+            <% end %>
+          </div>
+        </div>     
+      </section> 
+
       <section>
         <header>
           <h2><span>Contact</span></h2>
         </header>
-        <div class="intro">
-          <ul class="co-xs-l2">
-            <li>
-              <p>〒251-0032<br>神奈川県藤沢市片瀬5-4-11</p>
-              <p>TEL 080-6555-7966</p>
-              <p>e-Mail yunosukeyoshioka@gmail.com</p>
-              <p>※ご不明点がありましたらご連絡ください。</p>
-            </li> 
-          </ul>
+        <div class="intro row">
+          <div class="col-sm-12">  
+            <ul>
+              <li>
+                <p>〒251-0032<br>神奈川県藤沢市片瀬5-4-11</p>
+                <p>TEL 080-6555-7966</p>
+                <p>e-Mail yunosukeyoshioka@gmail.com</p>
+                <p>※ご不明点がありましたらご連絡ください。</p>
+              </li> 
+            </ul>
+          </div>  
         </div>
       </section>
     </div>

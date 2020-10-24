@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">  
-    <h2>ブックマーク一覧</h2>
+    <h2 class="text-center">ブックマーク一覧</h2>
+     <div class="field row">
+      <div class="col-sm-8 col-sm-offset-2">
       <% @favorites.each do |favorite| %>
         <ul class="fav">
         	<%= link_to property_path(favorite.id) do %>
@@ -10,6 +12,8 @@
           <li><%= link_to "削除", favorite_path(favorite.id),class: "btn btn-danger", method: :delete %></li>  
         </ul> 
       <% end %>
+    </div>
+  </div>
     </div>
   </div>
 </div>

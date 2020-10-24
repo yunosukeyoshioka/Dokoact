@@ -2,8 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
 table th{
 	background-color: #C0C0C0;
 }
@@ -21,12 +19,27 @@ table th{
 	margin-bottom:50px;
 }
 
-.btn-primary{
-	width:300px;
-	margin-top:20px;
-}
 
 .introduction {
   width: 250px;
   height: 100px;
-    }
+}
+
+.search{
+    width:350px;
+    margin-top:20px;
+  }
+
+.field{
+	padding:40px 0;
+}
+
+.image{
+	width:600px;
+	height:600px;
+}
+
+.index-image{
+	width:300px;
+	height:300px;
+}

@@ -1,8 +1,8 @@
 <div class="container">
 	<h2 class="text-center">物件検索</h2>	 
   <div class="row">
-  	<div class="col-xs-12">
-	    <div class="col-xs-8 col-xs-offset-4">   		  				
+  	<div class="col-sm-12">
+	    <div class="col-sm-8 col-sm-offset-4">   		  				
 				<%= search_form_for @q, url: search_properties_path do |f| %>
 					<table>
 						<tr>
@@ -26,12 +26,9 @@
 				  		<td><%= f.search_field :keywords_cont_all, placeholder: search_placeholder, required: false, label: t('helpers.keywords'), class: "introduction" %></td>
 				 		</tr>			
 					</table>	
-					<p><%= f.submit "検索", class: "btn btn-primary" %></p>
+					<p><%= f.submit "検索", class: "search btn btn-primary" %></p>
 				<% end %>				
 			</div>
 		</div>	
   </div>
-</div>
-
-
-					
+</div>					
