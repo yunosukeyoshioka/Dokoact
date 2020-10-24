@@ -19,23 +19,11 @@
 @import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 
-
-body{
-  font: 14px/1.9 'Noto Sans JP', Arial, Verdana, 游ゴシック, YuGothic,'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', メイリオ, Meiryo,sans-serif;
-  font-weight: 300;
-  -webkit-text-size-adjust:100%;
-  overflow-x: hidden;
-  color: #000;
-  background: #fff;
-}
-
-
-
 /* ヘッダー
 ------------------------------------------------------------*/
 #header{
   text-align: center;
-  padding: 60px 0;
+  padding: 50px 0;
 }
 
 #mainnav a{
@@ -57,6 +45,17 @@ padding-top:40px;
 
 /* 共通
 ------------------------------------------------------------*/
+body{
+  font-family:auto;
+ 
+  font-weight: 300;
+  -webkit-text-size-adjust:100%;
+  overflow-x: hidden;
+  color: #000;
+  background: #fff;
+}
+
+
 section{
   clear:both;
   padding-top: 70px;
@@ -69,11 +68,6 @@ section h2{
   font-size: 22px;
   font-weight:normal;
   text-align: center;
-}
-
-section h2 span {
-  background: #fff;
-  padding: 0 80px;
 }
 
 .inner{
@@ -89,20 +83,15 @@ section h2 span {
 }
 
 .top-menu{
-  padding-top:80px;
+  padding-top:40px;
 }
 
 
 
 
-/* PCサイズ（1024px）以下の際に適用される設定 */
-@media screen and (max-width:1024px) {
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 
+------------------------------------------------------------*/
 
-}
-
-
-
-/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width:768px) {
   ul {
     white-space: nowrap;
@@ -115,7 +104,9 @@ section h2 span {
 }
 
 
-/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+/* スマートフォンサイズ（425px）以下の際に適用される設定 
+------------------------------------------------------------*/
+
 @media screen and (max-width:425px) {
   ul {
     white-space: nowrap;
@@ -126,11 +117,25 @@ section h2 span {
     height: 200px;
     width: 300px;
   }
+
   .intro{
-    width: 200px;
+    width: 250px;
   }
 
-  
+  .search{
+    width:350px;
+    margin-top:20px;
+  }
+
+  .image, .index-image{
+    width:350px;
+    height:300px;
+  }
+  .wrapp {
+    display: flex;
+    flex-direction: column;
+  }
+
 }
 
 

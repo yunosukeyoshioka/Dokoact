@@ -1,29 +1,33 @@
 <!-- チャット履歴一覧画面-->
 <div class="container">
-  <h2>チャット履歴一覧</h2>
+  <h2 class="text-center">メッセージ履歴一覧</h2>
   <div class="row">
-    <div class="col-xs-12">
-      <table>
-        <thead>
-          <tr>
-            <th>
-               コンタクト中のお相手
-            </th>
-          </tr>
-        </thead> 
-      </table>    
-      <tbody>
-        <div>  
-          <% @anotherRoomUsers.each do |r| %>                 
-            <%= link_to room_path(r.room.id) do %>
-              <%= r.user.name %>さん
-            <% end %>
-            <% @rooms.each do |room| %>
-              <%= room.messages.order(created_at: :desc).take.try(:content) %><br>
-            <% end %>    
-          <% end %>
-        </div>  
-      </tbody>
+    <div class="col-sm-12">
+      <div class='field row'>
+        <div class="col-sm-8 col-sm-offset-4">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                   コンタクト中のお相手
+                </th>
+              </tr>
+            </thead> 
+          </table>    
+          <tbody>
+            <div>  
+              <% @anotherRoomUsers.each do |r| %>                 
+                <%= link_to room_path(r.room.id) do %>
+                  <%= r.user.name %>さん
+                <% end %>
+                <% @rooms.each do |room| %>
+                  <%= room.messages.order(created_at: :desc).take.try(:content) %><br>
+                <% end %>    
+              <% end %>
+            </div>  
+          </tbody>
+        </div>
+      </div>    
     </div>
   </div>
 </div>

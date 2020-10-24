@@ -17,41 +17,40 @@
       <div class="col-md-12">
         <header id="header">
          
-            <nav id="mainnav">      
-              <h3><%= link_to image_tag('logo.png'), root_path %></h3>
-              <% if user_signed_in? %>
-                <ul class="top-menu">
-                  <li>
-                    <%= link_to 'マイページ', user_path(current_user.id), class:"btn btn-light" %>
-                  </li>
-                  <li>
-                    <%= link_to '物件検索', search_properties_path, class:"btn btn-light" %>
-                  </li>
-                  <li>
-                    <%= link_to 'ブックマーク', favorites_path, class:"btn btn-light" %>
-                  </li>
-                  <li>
-                    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"btn btn-light" %>
-                  </li>
-                </ul> 
-              <% else %>
-                <ul>
-                  <li>
-                    <%= link_to 'About', abouts_path, class:"btn btn-light" %>
-                  </li>
-                  <li>
-                    <%= link_to '物件検索', search_properties_path, class:"btn btn-light" %>
-                  </li>
-                  <li>
-                    <%= link_to '新規登録', new_user_registration_path, class:"btn btn-light" %>
-                  </li>
-                  <li>
-                    <%= link_to 'ログイン', new_user_session_path, class:"btn btn-light" %>
-                  </li>
-                </ul>
-              <% end %> 
-            </nav>
-   
+          <nav id="mainnav">      
+            <h3><%= link_to image_tag('logo.png'), root_path %></h3>
+            <% if user_signed_in? %>
+              <ul class="top-menu">
+                <li>
+                  <%= link_to 'マイページ', user_path(current_user.id), class:"btn btn-light" %>
+                </li>
+                <li>
+                  <%= link_to '物件検索', search_properties_path, class:"btn btn-light" %>
+                </li>
+                <li>
+                  <%= link_to 'ブックマーク', favorites_path, class:"btn btn-light" %>
+                </li>
+                <li>
+                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"btn btn-light" %>
+                </li>
+              </ul> 
+            <% else %>
+              <ul>
+                <li>
+                  <%= link_to 'About', abouts_path, class:"btn btn-light" %>
+                </li>
+                <li>
+                  <%= link_to '物件検索', search_properties_path, class:"btn btn-light" %>
+                </li>
+                <li>
+                  <%= link_to '新規登録', new_user_registration_path, class:"btn btn-light" %>
+                </li>
+                <li>
+                  <%= link_to 'ログイン', new_user_session_path, class:"btn btn-light" %>
+                </li>
+              </ul>
+            <% end %> 
+          </nav> 
         </header>
         
         <%= yield %>
