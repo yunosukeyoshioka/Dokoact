@@ -13,8 +13,8 @@
             </ul>
           </div>
         <% end %> 
-        <div class="field row">
-          <div class="col-sm-8 col-sm-offset-4">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
             <table>
               <tr>
                 <td><label class="control-label">名称</label></td>
@@ -42,8 +42,12 @@
                 <td><%= f.text_area :intruduction, class:"form-control", placeholder:"客席数、鏡の有無、アクセス、リンクなど" %></td>      
               </tr>  
             </table>
-              <%= f.file_field :img, class: "images" %>
-            <p><%= f.submit "投稿", class:"search btn btn-lg btn-base-1" %></p>
+            <div class="row">
+              <div class="col-sm-8 col-sm-offset-2">
+                <%= f.file_field :img, class: "images" %>
+                <%= f.submit "投稿", class:"search btn btn-lg btn-base-1" %>
+              </div>
+            </div>  
           </div>
         </div>         
       <% end %>
