@@ -83,6 +83,18 @@ section h2{
 }
 
 
+ .actions{
+  margin: 15px 0;
+  }
+
+  .registration{
+  padding:1px 45px;
+  }
+
+.session{
+  margin-bottom:20px;
+}
+
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 
 ------------------------------------------------------------*/
 
@@ -98,6 +110,11 @@ section h2{
   .icon{
   margin-top:10px;
   }
+
+  .button{
+  display: inline-block; 
+  width: 200px;  
+ }
 }
 
 
@@ -133,9 +150,6 @@ section h2{
     flex-direction: column;
   }
 
-  .icon{
-    margin-top:10px;
-  }
 
 
   .property_table{
@@ -168,7 +182,10 @@ section h2{
   .contact{
   width:70%;
   }
+
+
 }
+
 
 
 
