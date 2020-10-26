@@ -1,24 +1,24 @@
-<script src="https://kit.fontawesome.com/da6e295665.js" crossorigin="anonymous"></script>
-<div class="row">
-  <div class="col-sm-12">
-    
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-4">  
-      	<h2><strong>本当に退会しますか？</strong></h2></br>
-     		退会すると、会員登録情報やこれまでの購入履歴が閲覧できなくなります。
-        退会する場合は「退会する」をクリックしてください。
-      </div> 
-    
-    
-      <div class='form-group row'>
-        <div class="col-sm-4">
-          <%= link_to "退会しない", user_path(current_user),class: "search glyphicon glyphicon-home btn btn-primary" %>
-        </div>
-        <div class="col-sm-4">  
-        	<%= link_to "退会する", withdraw_users_path, method: :patch, "data-confirm" => "本当に退会しますか？", 
-          class: "search glyphicon glyphicon-ok btn btn-danger" %>
+<!--退会画面-->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">  
+        	<h2><strong>本当に退会しますか？</strong></h2></br>
+       		退会すると、会員登録情報やこれまでの購入履歴が閲覧できなくなります。
+          退会する場合は「退会する」をクリックしてください。
+        </div> 
+      
+      
+        <div class='row'>
+          <div class="unscribe col-sm-8 col-sm-offset-4">
+            <%= link_to "退会しない", user_path(current_user),class: "glyphicon glyphicon-home btn btn-primary" %>
+          	<%= link_to "退会する", withdraw_users_path, method: :patch, "data-confirm" => "本当に退会しますか？", 
+            class: "glyphicon glyphicon-ok btn btn-danger" %>
+          </div>
         </div>
       </div>
-    </div>
-  </div>  
-</div> 	
+    </div>  
+  </div>
+</div>  

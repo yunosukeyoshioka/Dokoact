@@ -17,7 +17,7 @@ end
     @currentRoomUsers.each do | r |
       myRoomIds << r.room.id
     end
-    @anotherRoomUsers = RoomUser.where(room_id: myRoomIds).where('user_id != ?', @user.id)
+    @anotherRoomUsers = RoomUser.where(room_id: myRoomIds).where('user_id != ?', @user.id).all.order(created_at: :desc)
   end
 #会話の詳細表示
   def show
