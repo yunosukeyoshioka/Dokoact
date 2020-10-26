@@ -1,3 +1,4 @@
+<!--物件一覧-->
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
@@ -20,7 +21,7 @@
           </div>    
           <div class="row">
             <div class="col-sm-8 col-sm-offset-2">  
-              <table width="100%"> 
+              <table class="col-sm-8 col-sm-offset-2"> 
                 <tr>
                   <th class="property_table">物件名</th>
                   <th class="property_table">物件種別</th>
@@ -35,7 +36,7 @@
                   <td class="property_table"><%= property.area.width %></td>
                   <td class="property_table"><%= property.user.name %></td>
                 </tr>
-                <tr>
+                <tr class="i">
                   <td><%= link_to "詳細はこちら", property_path(property.id) %></td>
                 </tr>
               </table>

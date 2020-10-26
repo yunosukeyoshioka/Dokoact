@@ -5,7 +5,7 @@
   		<h2 class="text-center">物件検索</h2>	
 	    <div class="col-sm-8 col-sm-offset-3">   		  				
 				<%= search_form_for @q, url: search_properties_path do |f| %>
-					<table>
+					<table class="col-sm-8 col-sm-offset-2">
 						<tr>
 						  <td><%= f.label :property_name, "名称" %></td>
 						  <td><%= f.search_field :property_name_cont %></td>

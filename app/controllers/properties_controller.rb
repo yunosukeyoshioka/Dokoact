@@ -6,7 +6,7 @@ class PropertiesController < ApplicationController
 #物件一覧画面の表示
   def index
     #seedに記述の都道府県情報を取得。.allと比べてidごとに一覧を表示できる
-    @properties = Property.where(prefecture_id:params[:prefecture_id])
+    @properties = Property.where(prefecture_id:params[:prefecture_id]).all.order(created_at: :desc)
   end
 #物件詳細画面の表示
   def show

@@ -1,3 +1,4 @@
+<!--物件詳細-->
 <div class="container">
   <div class="row">
     <div class="property_index col-sm-12">
@@ -15,9 +16,9 @@
       </div>
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-          <table border="1" width="100%">   
+          <table border="1" class="col-sm-8 col-sm-offset-2">   
             <tr>
-              <th class="text-center", width="37%">1日あたりの使用料</th>
+              <th class="text-center", width="40%">1日あたりの使用料</th>
               <td height="50", class="text-center price"><h4>¥<%= @property.price %></h4></td>
             </tr>
             <tr>
@@ -41,13 +42,13 @@
               <td height="100"><%= @property.intruduction %></td>
             </tr>
           </table>  
-          <div class="btn">
+          <div class="btn col-sm-3 col-sm-offset-2">
             <% if user_signed_in? && (@property.user_id != current_user.id) %>
               <%= link_to "ブックマーク登録", favorites_path(id: @property.id), class: "btn btn-success", method: :post  %>
             <% end %>
           </div>
       
-          <div class="btn">
+          <div class="btn col-sm-3 col-sm-offset-2">
             <% if user_signed_in? %>  
               <% if @property.user_id == current_user.id %>
                 <%= link_to "投稿の削除", property_path(@property), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除してよろしいですか？" %>
