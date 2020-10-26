@@ -150,10 +150,18 @@ section h2{
     flex-direction: column;
   }
 
+.properties_table{
+  margin:0 auto;
+}
+
   .property_table{
   font-size:5px;
   text-align:center;
+  display: flex;
+  flex-direction: column;
+  width:100%;
   }
+
 
   .prefecture{
   display:flex;
@@ -188,12 +196,14 @@ section h2{
   }
 
   label{
-  width:80px;
+  width:100px;
   }
 
   .nothing{
   font-size:18px;
+  text-align:center;
   }
+
   .table{
     width:100%;
   }
@@ -208,6 +218,13 @@ section h2{
   .control-label{
   font-size:10px;
   }
+
+  .index_image{
+    width:200px;
+    height:200px;
+  }
+
+
 }
 
 

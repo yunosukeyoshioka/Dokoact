@@ -35,6 +35,6 @@ end
         {user_id: params[:user_id]}
       ]) 
     end
-     　redirect_to room_path(@room)
+     redirect_to room_path(@room)
   end
 end
