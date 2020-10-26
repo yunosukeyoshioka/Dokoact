@@ -14,27 +14,33 @@
                 <% if property.img? %>
                   <p><%= image_tag property.img.to_s, class: "index-image" %></p>   
                 <% else %>
-                  <%= image_tag attachment_url(@user, :profile_image, :fill, 300, 300, fallback: "no_image.jpg"), size:'300x300' %>    
+                  <%= image_tag attachment_url(@user, :profile_image, :fill, 300, 300, fallback: "no_image.jpg"), size:'300x300', class: "index_image" %>    
                 <% end %>
               </div>  
             </div>  
           </div>    
           <div class="row">
             <div class="col-sm-8 col-sm-offset-2">  
-              <table class="col-sm-8 col-sm-offset-2"> 
+              <table class="properties_table col-sm-8 col-sm-offset-2"> 
                 <tr>
                   <th class="property_table">物件名</th>
-                  <th class="property_table">物件種別</th>
-                  <th class="property_table">利用料(1日あたり)</th>
-                  <th class="property_table">面積</th>
-                  <th class="property_table">投稿者</th>
-                </tr>
-                <tr>
                   <td class="property_table"><%= property.prefecture.name %></td> 
+                </tr>
+                <tr>  
+                  <th class="property_table">物件種別</th>
                   <td class="property_table"><%= property.genre.genre %></td>
+                </tr>
+                <tr>  
+                  <th class="property_table">利用料(1日あたり)</th>
                   <td class="property_table">¥<%= property.price %></td>
+                </tr>
+                <tr>  
+                  <th class="property_table">面積</th>
                   <td class="property_table"><%= property.area.width %></td>
-                  <td class="property_table"><%= property.user.name %></td>
+                </tr>
+                <tr>  
+                  <th class="property_table">投稿者</th>
+                   <td class="property_table"><%= property.user.name %></td>
                 </tr>
                 <tr class="i">
                   <td><%= link_to "詳細はこちら", property_path(property.id) %></td>
@@ -44,7 +50,7 @@
           </div>    
         <% end %> 
       <% else %>
-        <h2 class="text-center">まだ投稿された物件はありません</h2>
+        <h3 class="text-center">まだ投稿された物件はありません</h3>
       <% end %>  
     </div>
   </div>    
