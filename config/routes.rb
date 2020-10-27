@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :properties, only: [:new, :index, :show, :edit, :search, :create, :destroy, :my_property] do
+  resources :properties, only: [:new, :index, :show, :search, :create, :destroy, :my_property] do
     collection do 
       get :search
       get :my_property

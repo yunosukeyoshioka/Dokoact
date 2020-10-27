@@ -1,5 +1,5 @@
 class Property < ApplicationRecord
-	#画像
+	#画像投稿用
 	mount_uploader :img, ImgUploader
 	belongs_to :genre
 	belongs_to :prefecture, optional: true
