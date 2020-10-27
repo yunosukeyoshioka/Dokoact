@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   def top
   	@prefectures = Prefecture.all
   	pp @prefectures
+    @guest_user = User.find(1)
   end
 
 #サイトの説明画面の表示

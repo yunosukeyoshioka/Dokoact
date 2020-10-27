@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root 'home#top'
   
+  devise_scope :user do
+    post '/sessions/guest_sign_in', to: 'sessions#new_guest'
+  end  
+
   resources :users, only: [:show, :create, :edit, :update, :new, :destroy, :unscribe, :withdraw] do
     collection do
       get :unscribe

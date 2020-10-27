@@ -6,7 +6,6 @@ before_action :authenticate_user!, only: [:show, :edit]
     @user = User.find(params[:id])
     @properties = Property.where(user_id: @user.id)
 
-
     #チャット
     @user = User.find(params[:id])
     # MessageUserモデルからログインユーザーのレコードを抽出

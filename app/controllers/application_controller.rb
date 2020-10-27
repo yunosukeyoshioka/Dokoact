@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   #Bootstrapのflashメッセージ機能追記
   add_flash_types :success, :danger, :info
 
+
 	protected
-   
    	#ログイン時のパス
    	def after_sign_in_path_for(resource)
    		root_path		
