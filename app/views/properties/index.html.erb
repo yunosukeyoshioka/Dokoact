@@ -21,34 +21,39 @@
           </div>    
           <div class="row">
             <div class="col-sm-8 col-sm-offset-2">  
-              <table class="properties_table col-sm-8 col-sm-offset-2"> 
+              <table class="property_box table-bordered table-condensed col-sm-8 col-sm-offset-2"> 
                 <tr>
                   <th class="property_table">物件名</th>
-                  <td class="property_table"><%= property.prefecture.name %></td> 
+                  <td><%= property.prefecture.name %></td> 
                 </tr>
                 <tr>  
                   <th class="property_table">物件種別</th>
-                  <td class="property_table"><%= property.genre.genre %></td>
+                  <td><%= property.genre.genre %></td>
                 </tr>
                 <tr>  
                   <th class="property_table">利用料(1日あたり)</th>
-                  <td class="property_table">¥<%= property.price %></td>
+                  <td>¥<%= property.price %></td>
                 </tr>
                 <tr>  
                   <th class="property_table">面積</th>
-                  <td class="property_table"><%= property.area.width %></td>
+                  <td><%= property.area.width %></td>
                 </tr>
                 <tr>  
                   <th class="property_table">投稿者</th>
-                   <td class="property_table"><%= property.user.name %></td>
-                </tr>
-                <tr class="i">
-                  <td><%= link_to "詳細はこちら", property_path(property.id) %></td>
+                  <td><%= property.user.name %></td>
                 </tr>
               </table>
+              <div class="row">
+                <div class="col-sm-2 col-sm-offset-8">
+                  <%= link_to "詳細はこちら", property_path(property.id) %>
+                </div> 
+              </div>
             </div>
           </div>    
         <% end %> 
+        <div class="text-center">
+          <%= paginate @properties %>
+        </div> 
       <% else %>
         <h3 class="text-center">まだ投稿された物件はありません</h3>
       <% end %>  
