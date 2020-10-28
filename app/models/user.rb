@@ -7,13 +7,14 @@ devise :database_authenticatable, :registerable,
 
 has_many :messages, dependent: :destroy
 
-has_many :room_users
-has_many :rooms, through: :room_users
+has_many :room_users, dependent: :destroy
+has_many :rooms, through: :room_users, dependent: :destroy
 
 
 has_many :favorites, dependent: :destroy
-has_many :favorite_properties, class_name: "Property", through: :favorites
-has_many :properties
+has_many :favorite_properties, class_name: "Property", through: :favorites#, dependent: :destroy
+#追加
+has_many :properties #dependent: :destroy
 
 validates :name, presence: true, length: {maximum:30,minimum:1}
 validates :email, presence: true, uniqueness: true, length: {minimum:4}

@@ -54,6 +54,7 @@ before_action :authenticate_user!, only: [:show, :edit]
 #退会処理
   def withdraw
     current_user.update(is_valid: true)
+    current_user.properties.destroy_all
     current_user.destroy
     reset_session
     redirect_to root_path, info: 'ありがとうございました。またのご利用を心よりお待ちしております。'
