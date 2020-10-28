@@ -61,7 +61,7 @@ class PropertiesController < ApplicationController
     @q = Property.ransack(params[:q])
     if params[:q].present?
       #distinct 検索時に重複がないようにする
-      @properties = @q.result(distinct: true)
+      @properties = @q.result(distinct: true).page(params[:page]).per(10)
       render :index
     end
   end  
