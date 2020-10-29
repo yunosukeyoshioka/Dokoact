@@ -3,28 +3,7 @@
   <h2 class="text-center">メッセージ履歴一覧</h2>
   <div class="row">
     <div class="col-sm-12">
-      <div class='row'>
-        <div class="col-sm-8 col-sm-offset-4">
-          <table class="table-bordered table-condensed">
-            <% if @anotherRoomUsers.present? %>  
-              <tr>
-                <th>コンタクト中のお相手</th>
-              </tr>
-              <% @anotherRoomUsers.each do |r| %>                 
-                <tr>
-                  <td>
-                    <%= link_to room_path(r.room.id) do %>
-                      <%= r.user.name %>さん 
-                    <% end %>
-                  </td> 
-                </tr>    
-              <% end %>
-            <% else %>
-              <h3 class="nothing">現在コンタクト中のユーザーはいません</h3>  
-            <% end %>  
-          </table>   
-        </div>
-      </div>    
+      <%= render 'index' %>
     </div>
   </div>
 </div>

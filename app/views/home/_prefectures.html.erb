@@ -1,0 +1,18 @@
+<!--都道府県名一覧表示部分-->
+<section>   
+  <div class="row">  
+    <div class="prefectures col-sm-12">  
+      <% @prefectures.each do |prefecture| %> 
+        <% if prefecture.property_ids.present? %>
+          <%= link_to properties_path(prefecture_id:prefecture.id), class: 'btn prefecture' do %> 
+            <h4><%= prefecture.name %></h4>
+          <% end %>  
+        <% else %>  
+          <%= link_to properties_path(prefecture_id:prefecture.id), class: 'btn prefecture disabled' do %> 
+            <h4><%= prefecture.name %></h4>
+          <% end %>
+        <% end %>    
+      <% end %>
+    </div>
+  </div>     
+</section> 

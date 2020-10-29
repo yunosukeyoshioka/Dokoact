@@ -1,0 +1,13 @@
+<!--写真表示部分-->
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h2><%= @property.property_name %></h2>
+    <div class="post-image">
+      <% if @property.img? %>
+        <%= image_tag @property.img.to_s, class: "image" %>
+      <% else %>
+        <%= image_tag attachment_url(@user, :profile_image, :fill, 300, 300, fallback: "no_image.jpg"), size:'350x350' %>
+      <% end %>
+    </div>
+  </div>
+</div>

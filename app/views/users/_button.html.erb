@@ -1,0 +1,15 @@
+<!--マイページボタン部分-->
+<div class="row">
+	<div class="col-sm-8 col-sm-offset-2">
+		<div class = "button">
+			<%= link_to "会員情報編集", edit_user_path, class: "icon fas fa-wrench btn btn-success" %>
+			<%= link_to "自分が投稿した物件", my_property_properties_path, class: "icon fas fa-house-user btn btn-purple"%>
+			<%= link_to "ブックマーク", favorites_path, data: {"turbolinks" => false}, class: "icon fas fa-bookmark btn btn-primary" %>
+		</div>
+		<div class ="button">				
+			<%= link_to " コンタクト済み", rooms_path, class: "icon fas fa-paper-plane btn btn-danger" %>
+			<%= link_to "物件の新規投稿", new_property_path, class: "icon fas fa-warehouse btn btn-info" %>
+			<%= link_to "トップページへ", root_path, class: "icon far fa-caret-square-up btn btn-warning" %>
+		</div>
+	</div>
+</div>		

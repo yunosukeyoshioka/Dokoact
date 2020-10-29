@@ -3,47 +3,8 @@
 	<div class="row">
 		<div class="col-sm-12"> 
 		<h2>マイページ</h2>   
-		  <div class="user_table row">
-				<div class="col-sm-8 col-sm-offset-2">
-					<table class="table table-bordered table-condensed">
-						<h3 class="text-left"><strong><i class="far fa-user"></i>登録情報</strong></h3>
-						<tr>
-							<td class="info col-sm-3"><strong>氏名</strong></td>
-							<td class="text-left"><%= @user.name %></td>
-						</tr>
-						<tr>
-							<td class="info"><strong>郵便番号</strong></td>
-							<td class="text-left"><%= @user.postcode %></td>
-						</tr>
-						<tr>
-							<td class="info"><strong>住所</strong></td>
-							<td class="text-left"><%= @user.address %></td>
-						</tr>
-						<tr>
-							<td class="info"><strong>電話番号</strong></td>
-							<td class="text-left"><%= @user.phone_number %></td>
-						</tr>
-						<tr>
-							<td class="info"><strong>メールアドレス</strong></td>
-							<td class="text-left"><%= @user.email %></td>
-						</tr>			
-					</table>		
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-8 col-sm-offset-2">
-					<div class = "button">
-						<%= link_to "会員情報編集", edit_user_path, class: "icon fas fa-wrench btn btn-success" %>
-						<%= link_to "自分が投稿した物件", my_property_properties_path, class: "icon fas fa-house-user btn btn-purple"%>
-						<%= link_to "ブックマーク", favorites_path, data: {"turbolinks" => false}, class: "icon fas fa-bookmark btn btn-primary" %>
-					</div>
-					<div class ="button">				
-						<%= link_to " コンタクト済み", rooms_path, class: "icon fas fa-paper-plane btn btn-danger" %>
-						<%= link_to "物件の新規投稿", new_property_path, class: "icon fas fa-warehouse btn btn-info" %>
-						<%= link_to "トップページへ", root_path, class: "icon far fa-caret-square-up btn btn-warning" %>
-					</div>
-				</div>
-			</div>		
+		  <%= render 'show' %>
+			<%= render 'button' %>
   	</div>		
 	</div>
 </div>

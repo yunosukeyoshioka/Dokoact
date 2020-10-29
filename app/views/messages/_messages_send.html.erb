@@ -1,0 +1,15 @@
+<!--DM送信フォーム部分-->
+<div class="message-area">
+  <div class="message-area-text">
+    <!--remote: trueを追加-->
+    <%= form_with model: @message do |form| %>
+      <%= form.hidden_field :room_id, :value => @room.id %>
+      <div class="field">
+        <%= form.text_area :body, rows: 5, placeholder: 'コメントを入力してください' %>
+      </div>
+      <div class="message-area-button">
+        <%= form.submit '送信', class: "message-area-button " %>
+      </div>
+    <% end %>
+  </div>
+</div>  

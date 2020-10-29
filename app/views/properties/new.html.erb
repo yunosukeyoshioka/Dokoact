@@ -2,55 +2,8 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h2 class="text-center">施設・物件の新規投稿</h2>
-      <%= form_for(@property, url: properties_path) do |f| %>
-        <% if @property.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= @property.errors.count %>件のエラーが発生しました。</h2>
-            <ul>
-            <% @property.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %> 
-        <div class="row">
-          <div class="col-sm-8 col-sm-offset-4">
-            <table>
-              <tr>
-                <td><label class="control-label">名称</label></td>
-                <td><%= f.text_field :property_name, class:"form-control", placeholder:"施設名" %></td>
-              </tr>
-              <tr>
-                <td><label class="control-label">施設種別</label></td>
-                <td><%= f.collection_select(:genre_id, Genre.all, :id, :genre) %></td>
-              </tr>
-              <tr>
-                <td><label class="control-label">住所</label></td>
-                <!--住所をセレクターで表示。ネスト済みのため、prefecture_id, 県全件取得, id, カラム名(名前)で表示 -->  
-                <td><%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %></td>            
-              </tr>
-              <tr>
-                <td><label class="control-label">広さ</label></td>
-                <td><%= f.collection_select :area_id, Area.all, :id, :width %></td>    
-              </tr>
-              <tr>
-                <td><label class="control-label">価格(1日あたり)</label></td>
-                <td><%= f.text_field :price, class:"form-control", placeholder:"1日あたりの価格" %></td>      
-              </tr>
-              <tr>
-                <td><label class="control-label">その他情報</label></td>
-                <td><%= f.text_area :intruduction, class:"form-control", placeholder:"客席数、鏡の有無、アクセス、リンクなど" %></td>
-              </tr>  
-            </table>
-            <div class="col-sm-8">
-              <%= f.file_field :img, class: "images" %>
-              <%= f.submit "投稿", class:"search btn btn-lg btn-success" %>
-            </div>
-          </div>
-        </div>         
-      <% end %>
+      <%= render 'error' %>
+      <%= render 'new' %>
     </div>
-
   </div>
 </div>  

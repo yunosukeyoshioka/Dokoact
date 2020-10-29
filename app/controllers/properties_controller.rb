@@ -13,26 +13,25 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:id])
     #ログインしているユーザーが自分じゃなければチャットを行う
     if user_signed_in?
-      @currentUserEntry=RoomUser.where(user_id: current_user.id)
-      @userEntry=RoomUser.where(user_id: @property.user.id)
+      @current_user_entry=RoomUser.where(user_id: current_user.id)
+      @user_entry=RoomUser.where(user_id: @property.user.id)
       if@property.user == current_user.id
       else
-        @currentUserEntry.each do |cu|
-          @userEntry.each do |u|
+        @current_user_entry.each do |cu|
+          @user_entry.each do |u|
             if cu.room_id == u.room_id then
-              @isRoom = true
+              @is_room = true
               @room = cu.room_id
             end
           end
       
-        if @isRoom
+        if @is_room
         else
-          @isRoom = false
+          @is_room = false
         end
       end
     end  
   end
-
 
   end
 #物件の新規投稿
@@ -52,12 +51,10 @@ class PropertiesController < ApplicationController
     @property.destroy
     redirect_to user_path(current_user)
   end	
-  #物件の検索画面表示
-  #検索アクション
+#物件の検索画面表示
   def search
     keywords = params.dig(:q, :keywords_cont_all)&.split(/[[:space:]]/)
     params[:q][:keywords_cont_all] = keywords if keywords
-
     @q = Property.ransack(params[:q])
     if params[:q].present?
       #distinct 検索時に重複がないようにする
@@ -65,13 +62,11 @@ class PropertiesController < ApplicationController
       render :index
     end
   end  
-
+#自分の投稿した物件
   def my_property
     @user = current_user
     @properties = Property.where(user_id: @user.id)
   end
-
-
 
   private
   def property_params

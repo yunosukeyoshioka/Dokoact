@@ -1,23 +1,23 @@
 class RoomsController < ApplicationController
+
 #チャット画面遷移URL直打ち防止
 before_action :correct_user, only: [:show]
-def correct_user
-  @room = current_user.rooms.find_by(id: params[:id])
-    unless @room
-      redirect_to root_path
-    end
-end
-
+  def correct_user
+    @room = current_user.rooms.find_by(id: params[:id])
+      unless @room
+        redirect_to root_path
+      end
+  end
 #会話履歴一覧表示
   def index
     @rooms = Room.all
     @user = current_user
-    @currentRoomUsers = current_user.room_users
-    myRoomIds = []
-    @currentRoomUsers.each do | r |
-      myRoomIds << r.room.id
+    @current_room_users = current_user.room_users
+    my_room_ids = []
+    @current_room_users.each do | r |
+      my_room_ids << r.room.id
     end
-    @anotherRoomUsers = RoomUser.where(room_id: myRoomIds).where('user_id != ?', @user.id).all.order(created_at: :desc)
+    @another_room_users = RoomUser.where(room_id: my_room_ids).where('user_id != ?', @user.id).order(created_at: :desc)
   end
 #会話の詳細表示
   def show
@@ -28,7 +28,7 @@ end
   end
 #会話(部屋)の作成
   def create
-  #作成するroomをidと紐付ける。user_idが現在のユーザーでidを取得してroomを作成
+#作成するroomをidと紐付ける。user_idが現在のユーザーでidを取得してroomを作成
   	@room = Room.create do |r|
       r.room_users.new([
         {user_id: current_user.id}, 

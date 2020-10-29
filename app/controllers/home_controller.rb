@@ -10,7 +10,6 @@ class HomeController < ApplicationController
   def about
   end
 
-
 	private
   def prefecture_params
     params.require(:property).permit(:prefecture, :name)

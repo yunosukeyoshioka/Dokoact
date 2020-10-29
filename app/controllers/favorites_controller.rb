@@ -1,10 +1,10 @@
 class FavoritesController < ApplicationController
-#いいねした物件一覧表示　 
+#お気に入りに追加した物件一覧表示　 
   def index
   	@user = current_user
   	@favorites = Favorite.where(user_id: @user.id).all
   end
-#いいね
+#お気に入り追加
   def create
     @user_id = current_user.id
     @property_id = Property.find(params[:id]).id
@@ -14,10 +14,8 @@ class FavoritesController < ApplicationController
      else
       redirect_to root_path
     end   
-  end
-
-  
-  #いいねした物件の削除
+  end  
+#お気に入りの削除
   def destroy
     @favorite = Favorite.find(params[:id])
     if @favorite.destroy

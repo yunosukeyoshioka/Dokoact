@@ -2,67 +2,11 @@
 <div class="container">
   <div class="row">
     <div class="property_index col-sm-12">
+      <%= render 'image' %>
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-          <h2><%= @property.property_name %></h2>
-          <div class="post-image">
-            <% if @property.img? %>
-              <%= image_tag @property.img.to_s, class: "image" %>
-            <% else %>
-              <%= image_tag attachment_url(@user, :profile_image, :fill, 300, 300, fallback: "no_image.jpg"), size:'350x350' %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-          <table border="1" class="property_box col-sm-8 col-sm-offset-2">   
-            <tr>
-              <th class="text-center", width="40%">1日あたりの使用料</th>
-              <td height="50", class="text-center price"><h4>¥<%= @property.price %></h4></td>
-            </tr>
-            <tr>
-              <th class="text-center">投稿者</th>
-              <td height="50", class="text-center"><%= @property.user.name %></td>
-            </tr>        
-            <tr>
-              <th class="text-center">住所</th>
-              <td height="50", class="text-center"><%= @property.prefecture.name %></td> 
-            </tr>
-            <tr>  
-              <th class="text-center">物件種別</th>
-              <td height="50", align="center"><%= @property.genre.genre %></td>
-            </tr>
-            <tr>  
-              <th class="text-center">面積</th>
-              <td height="50", align="center"><%= @property.area.width %></td>
-            </tr>
-            <tr>  
-              <th class="text-center">その他</th>
-              <td height="100"><%= @property.intruduction %></td>
-            </tr>
-          </table>  
-          <div class="btn col-sm-3 col-sm-offset-2">
-            <% if user_signed_in? && (@property.user_id != current_user.id) %>
-              <%= link_to "ブックマーク登録", favorites_path(id: @property.id), class: "btn btn-success", method: :post  %>
-            <% end %>
-          </div>
-      
-          <div class="btn col-sm-3 col-sm-offset-2">
-            <% if user_signed_in? %>  
-              <% if @property.user_id == current_user.id %>
-                <%= link_to "投稿の削除", property_path(@property), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除してよろしいですか？" %>
-              <% end %>
-
-              <% if @property.user_id != current_user.id %>
-                <% if @isRoom %>
-                  <%= link_to "コンタクトを取る", room_path(@room), class: "btn btn-info" %>
-                <% else %>
-                  <%= link_to "コンタクトを取る", rooms_path(user_id: @property.user_id, room_id: @room), method: :post %>  
-                <% end %> 
-              <% end %>          
-            <% end %>
-          </div>             
+          <%= render 'information' %> 
+          <%= render 'button' %>               
         </div>
       </div>
     </div>
