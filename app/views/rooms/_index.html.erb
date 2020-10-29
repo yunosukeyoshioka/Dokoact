@@ -1,0 +1,23 @@
+<!--DM一覧画面-->
+<div class='row'>
+  <div class="col-sm-8 col-sm-offset-4">
+    <table class="table-bordered table-condensed">
+      <% if @another_room_users.present? %>  
+        <tr>
+          <th>コンタクト中のお相手</th>
+        </tr>
+        <% @another_room_users.each do |r| %>                 
+          <tr>
+            <td>
+              <%= link_to room_path(r.room.id) do %>
+                <%= r.user.name %>さん 
+              <% end %>
+            </td> 
+          </tr>    
+        <% end %>
+      <% else %>
+        <h3 class="nothing">現在コンタクト中のユーザーはいません</h3>  
+      <% end %>  
+    </table>   
+  </div>
+</div>    

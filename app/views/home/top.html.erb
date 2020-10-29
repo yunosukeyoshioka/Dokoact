@@ -34,17 +34,7 @@
         </div>
       </section>
 
-      <section>   
-        <div class="row">  
-          <div class="prefectures col-sm-12">
-            <% @prefectures.each do |prefecture| %>     
-              <%= link_to properties_path(prefecture_id:prefecture.id), class: 'btn prefecture' do %> 
-                <h4><%= prefecture.name %></h4>
-              <% end %>  
-            <% end %>
-          </div>
-        </div>     
-      </section> 
+      <%= render 'prefectures' %>
 
       <section>
         <header>

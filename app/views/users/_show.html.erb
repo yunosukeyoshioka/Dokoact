@@ -1,0 +1,28 @@
+<!--ユーザー情報表示部分-->
+<div class="user_table row">
+	<div class="col-sm-8 col-sm-offset-2">
+		<table class="table table-bordered table-condensed">
+			<h3 class="text-left"><strong><i class="far fa-user"></i>登録情報</strong></h3>
+			<tr>
+				<td class="info col-sm-3"><strong>氏名</strong></td>
+				<td class="text-left"><%= @user.name %></td>
+			</tr>
+			<tr>
+				<td class="info"><strong>郵便番号</strong></td>
+				<td class="text-left"><%= @user.postcode %></td>
+			</tr>
+			<tr>
+				<td class="info"><strong>住所</strong></td>
+				<td class="text-left"><%= @user.address %></td>
+			</tr>
+			<tr>
+				<td class="info"><strong>電話番号</strong></td>
+				<td class="text-left"><%= @user.phone_number %></td>
+			</tr>
+			<tr>
+				<td class="info"><strong>メールアドレス</strong></td>
+				<td class="text-left"><%= @user.email %></td>
+			</tr>			
+		</table>		
+	</div>
+</div>

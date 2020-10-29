@@ -1,7 +1,6 @@
 class MessagesController < ApplicationController
 #メッセージの送信
 	def create
-    #インスタンス化する？
     @message = Message.new(message_params)
     @message.user_id = current_user.id
     if @message.save
