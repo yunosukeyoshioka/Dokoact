@@ -19,11 +19,11 @@
           <nav id="mainnav">      
             <h3><%= link_to image_tag('logo.png'), root_path %></h3>
             <% if user_signed_in? %>
-              <div class="guest">
+              <!-- <div class="guest">
                 <%if current_user == @guest_user %>
                   <%= "ゲストユーザーとしてログイン中です" %>
                 <% end %>  
-              </div>  
+              </div>   -->
               <ul class="top-menu">
                 <li>
                   <%= link_to 'マイページ', user_path(current_user.id), class:"btn btn-light" %>
