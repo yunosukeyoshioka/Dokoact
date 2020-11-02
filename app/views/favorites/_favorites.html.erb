@@ -9,7 +9,7 @@
         <% @favorites.each do |favorite| %>
           <tr>
             <td>
-              <%= link_to property_path(favorite.id), class: "col-sm-9" do %>
+              <%= link_to property_path(favorite.property.id), class: "col-sm-9" do %>
                 <%= favorite.property.property_name %>    
               <% end %>  
               <%= link_to "削除", favorite_path(favorite.id), class: "col-sm-3 btn btn-danger", method: :delete %>  
