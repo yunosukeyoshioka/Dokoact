@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_10_20_100730) do
     t.integer "property_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "property_id"], name: "index_favorites_on_user_id_and_property_id", unique: true
   end
 
   create_table "genres", force: :cascade do |t|

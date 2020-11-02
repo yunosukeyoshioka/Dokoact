@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
     if @favorite.save
       redirect_to favorites_path(current_user)
      else
-      redirect_to root_path
+      redirect_to favorites_path(@user_id)
     end   
   end  
 #お気に入りの削除
