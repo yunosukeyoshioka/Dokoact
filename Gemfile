@@ -83,5 +83,5 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
-#ページネーション 
+#ページネーション
 gem 'kaminari'
