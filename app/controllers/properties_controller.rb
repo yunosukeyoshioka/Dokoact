@@ -47,6 +47,7 @@ class PropertiesController < ApplicationController
   end
 #物件の削除
   def destroy
+    
     @property = Property.find(params[:id])
     @property.destroy
     redirect_to user_path(current_user)
