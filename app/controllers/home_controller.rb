@@ -4,11 +4,11 @@ class HomeController < ApplicationController
   	@prefectures = Prefecture.all
   	pp @prefectures
     
- def new_guest
-    @user = User.find_or_create_by!(email: 'sample@sample.com')
-    sign_in @user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
-  end
+   def new_guest
+      @user = User.find_or_create_by!(email: 'sample@sample.com')
+      sign_in @user
+      redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    end
     #@guest_user = User.find(1)
   end
 
@@ -21,5 +21,4 @@ class HomeController < ApplicationController
     params.require(:property).permit(:prefecture, :name)
   end
 
-  	
 end
