@@ -8,7 +8,7 @@
 
   User.create!(
     name: "sample",
-    email: "sample@samplesample",
+    email: "yunosuke@samplesample",
     postcode: "1111111",
     address: "東京都品川区111111",
     phone_number: "11111111111",
