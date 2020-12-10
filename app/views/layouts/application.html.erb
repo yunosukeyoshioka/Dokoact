@@ -16,13 +16,13 @@
     <div class="row">
       <div class="col-md-12">
         <header id="header">
-          <nav id="mainnav">      
+          <nav id="mainnav">
             <h3><%= link_to image_tag('logo.png'), root_path %></h3>
             <% if user_signed_in? %>
               <!-- <div class="guest">
                 <%if current_user == @guest_user %>
                   <%= "ゲストユーザーとしてログイン中です" %>
-                <% end %>  
+                <% end %>
               </div>   -->
               <ul class="top-menu">
                 <li>
@@ -54,18 +54,18 @@
                 </li>
                 <li>
                   <%= link_to 'ゲストログイン（閲覧用）', sessions_guest_sign_in_path, class:"btn btn-light", method: :post %>
-                </li>  
+                </li>
               </ul>
-            <% end %> 
-          </nav> 
+            <% end %>
+          </nav>
         </header>
-        
+
         <%= yield %>
-        
+
         <footer id="footer">
           Copyright(c) 2020 Dokoact Inc. All Rights Reserved.
         </footer>
       </div>
-    </div>    
+    </div>
   </body>
 </html>
