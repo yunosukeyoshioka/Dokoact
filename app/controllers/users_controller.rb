@@ -3,7 +3,7 @@ before_action :authenticate_user!, only: [:show, :edit]
 before_action :set_user, only: [:show, :edit, :update]
 #マイページの表示
   def show
-    @guest_user = User.find_by(email: 'sample@sample')
+    @guest_user = User.find_by(email: 'yunosuke@samplesample')
     @properties = Property.where(user_id: @user.id)
     #DM
     # MessageUserモデルからログインユーザーのレコードを抽出
