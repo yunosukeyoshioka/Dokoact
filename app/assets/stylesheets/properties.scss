@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.error{
+	text-align: center;
+}
+
 table th{
 	background-color: #C0C0C0;
 
@@ -26,7 +30,7 @@ border: solid 1px #ccc;
 	padding-top: 20px;
 }
 
-.price{ 
+.price{
 	color: red;
 }
 
@@ -45,8 +49,6 @@ border: solid 1px #ccc;
     width:350px;
     margin-top:20px;
   }
-
-
 
 .image{
 	width:600px;

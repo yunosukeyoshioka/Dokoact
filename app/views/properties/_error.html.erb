@@ -2,10 +2,10 @@
 <% if @property.errors.any? %>
   <div id="error_explanation">
     <h2><%= @property.errors.count %>件のエラーが発生しました。</h2>
-    <ul>
+    <ul class="error">
     <% @property.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+      <li><%= message %></li><br>
     <% end %>
     </ul>
   </div>
-<% end %> 
+<% end %>

@@ -1,6 +1,6 @@
 <!--物件検索部分-->
-<h2 class="text-center">物件検索</h2>	
-<div class="col-sm-8 col-sm-offset-3">   		  				
+<h2 class="text-center">物件検索</h2>
+<div class="col-sm-8 col-sm-offset-3">
 	<%= search_form_for @q, url: search_properties_path do |f| %>
 		<table class="col-sm-8 col-sm-offset-2">
 			<tr>
@@ -9,25 +9,25 @@
 			</tr>
 			<tr> 
 			  <td><%= f.label :genre_id, "種別" %></td>
-			  <td><%= f.collection_select :genre_id_eq, Genre.all, :id, :genre %></td>     
+			  <td><%= f.collection_select :genre_id_eq, Genre.all, :id, :genre %></td>
 			</tr>
 			<tr> 
-			  <td><%= f.label :prefecture, "都道府県" %></td>		 
-			  <td><%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name %></td>     
+			  <td><%= f.label :prefecture, "都道府県" %></td>
+			  <td><%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name %></td>
 			</tr>
 			<tr> 
 			  <td><%= f.label :area, "専有面積" %></td>
-			 	<td><%= f.collection_select :area_id_eq, Area.all, :id, :width %></td>   
+			 	<td><%= f.collection_select :area_id_eq, Area.all, :id, :width %></td>
 			</tr>
 			<tr> 
 			 	<td><%= f.label :intruduction, "その他検索条件" %></td>
 	  		<td><%= f.search_field :keywords_cont_all, placeholder: search_placeholder, required: false, label: t('helpers.keywords'), class: "introduction" %></td>
-	 		</tr>			
-		</table>	
+	 		</tr>
+		</table>
 		<div class="row">
       <div class="col-sm-8 col-sm-offset-2">
 				<%= f.submit "検索", class: "search btn btn-primary" %>
 			</div>
-		</div>	
-	<% end %>				
+		</div>
+	<% end %>
 </div>

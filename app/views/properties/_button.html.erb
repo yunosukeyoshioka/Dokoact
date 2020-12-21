@@ -3,15 +3,15 @@
 
   <%# if Favorite.find_by(user_id: current_user.id) %>
     <%#= "登録済み" %>
-  <%# else %>  
+  <%# else %>
     <% if user_signed_in? && (@property.user_id != current_user.id) %>
       <%= link_to "ブックマーク登録", favorites_path(id: @property.id), class: "btn btn-success", method: :post %>
     <% end %>
-  <%# end %>  
+  <%# end %>
 </div>
 
 <div class="btn col-sm-3 col-sm-offset-2">
-  <% if user_signed_in? %>  
+  <% if user_signed_in? %>
     <% if @property.user_id == current_user.id %>
       <%= link_to "投稿の削除", property_path(@property), class: "btn btn-danger", method: :delete, "data-confirm" => "本当に削除してよろしいですか？" %>
     <% end %>
@@ -21,7 +21,7 @@
         <%= link_to "コンタクトを取る", room_path(@room), class: "btn btn-info" %>
       <% else %>
         <%= link_to "コンタクトを取る", rooms_path(user_id: @property.user_id, room_id: @room), method: :post, class: "btn btn-info" %>
-      <% end %> 
-    <% end %>          
+      <% end %>
+    <% end %>
   <% end %>
-</div> 
+</div>

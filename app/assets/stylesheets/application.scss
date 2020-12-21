@@ -14,7 +14,7 @@
  *= require_self
  */
 @import "bootstrap-sprockets";
-@import "bootstrap";         
+@import "bootstrap";
 
 @import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
@@ -105,7 +105,8 @@ label{
   margin-bottom:20px;
 }
 
-/* タブレット縦置きサイズ（768px）以下の際に適用される設定 
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定
 ------------------------------------------------------------*/
 
 @media screen and (max-width:768px) {
@@ -122,13 +123,13 @@ label{
   }
 
   .button{
-  display: inline-block; 
-  width: 200px;  
+  display: inline-block;
+  width: 200px;
  }
 }
 
 
-/* スマートフォンサイズ（425px）以下の際に適用される設定 
+/* スマートフォンサイズ（425px）以下の際に適用される設定
 ------------------------------------------------------------*/
 
 @media screen and (max-width:425px) {
@@ -181,7 +182,7 @@ label{
   }
 
 
-  .prefectures{  
+  .prefectures{
    background-color:white;
    border:none;
 
@@ -232,7 +233,7 @@ label{
 
   .user_table{
   padding-bottom:10px;
-  }  
+  }
 
   .fa, .far, .fas {
     width:100%;
