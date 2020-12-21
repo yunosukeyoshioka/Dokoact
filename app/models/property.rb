@@ -13,12 +13,13 @@ class Property < ApplicationRecord
 	has_many :messages
 
 #物件検索時のバリデーション
-	validates :property_name, presence: true
+	validates :property_name, length: { in: 1..80 }, presence: true
+	validates :intruduction, length: { in: 1..1000}, presence: true
 
 
  ransacker :keywords do |parent|
     Arel::Nodes::InfixOperation.new('||', parent.table[:property_name], parent.table[:intruduction])
   end
-	
+
 
 end

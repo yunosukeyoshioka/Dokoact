@@ -24,7 +24,7 @@ class PropertiesController < ApplicationController
               @room = cu.room_id
             end
           end
-      
+
         if @is_room
         else
           @is_room = false
@@ -47,7 +47,6 @@ class PropertiesController < ApplicationController
   end
 #物件の削除
   def destroy
-    
     @property = Property.find(params[:id])
     @property.destroy
     redirect_to user_path(current_user)
