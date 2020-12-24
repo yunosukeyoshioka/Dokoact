@@ -85,3 +85,12 @@ group :production do
 end
 #ページネーション
 gem 'kaminari'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
+#capistrano
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano3-puma'
+gem 'capistrano-rbenv'
